@@ -13,7 +13,24 @@ function onHands(results){let hands=results.multiHandLandmarks||[];if(!hands.len
 if(scene==='love'&&hands.length>=2){let a=hands[0][9],b=hands[1][9],ax=1-a.x,bx=1-b.x,ay=a.y,by=b.y;let d=Math.hypot(ax-bx,ay-by),cx=(ax+bx)*.5*innerWidth,cy=(ay+by)*.5*innerHeight;let now=performance.now();if(!heart)heart={x:cx,y:cy,r:90,energy:1,age:0};heart.x+=(cx-heart.x)*.25;heart.y+=(cy-heart.y)*.25;heart.r+=(Math.max(95,Math.min(Math.min(innerWidth*.43,230),d*innerWidth*1.08))-heart.r)*.22;heart.energy=1;if(now-lastRipple>390){addRipple(cx,cy,Math.min(105,heart.r*.55),"pink",.65);lastRipple=now}if(prevDistance!==null&&d-prevDistance>.09&&now-lastBurst>1100){burstHeart(heart.x,heart.y,heart.r);lastBurst=now;log('双手展开：粉白粒子扩散')}prevDistance=d;previous=null;return}
 prevDistance=null;if(scene==='love'){previous=null;return}let hand=hands[0],p=hand[9],x=1-p.x,y=p.y,now=performance.now();if(previous){let dt=now-previous.t,dx=x-previous.x,dy=y-previous.y;let speed=Math.hypot(dx,dy)/(dt/1000);if(dt<350&&speed>0.65&&now-lastThrow>950){spawn(x*innerWidth,y*innerHeight,Math.sign(dx)||1);lastThrow=now;log('识别到挥手！已抛出雏菊')}}previous={x,y,t:now};}
 function addRipple(x,y,r=20,tone="pearl",power=1){ripples.push({x,y,r,age:0,max:65+Math.random()*22,power,tone});if(ripples.length>32)ripples.shift()}
-function spawn(x=innerWidth*.48,y=innerHeight*.45,dir=1){addRipple(x,y,20,"pearl",1.2);setTimeout(()=>addRipple(x,y,38,"lavender",.7),140);flowers.push({x,y,vx:dir*(2.2+Math.random()*2),vy:-2.5-Math.random()*1.5,rot:0,vr:(Math.random()-.5)*.055,life:190,size:Math.min(innerWidth*.105,43)+Math.random()*5,age:0});for(let i=0;i<23;i++){let a=Math.random()*Math.PI*2,s=1+Math.random()*4;sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:50,size:.5+Math.random()*1.3})}promptEl.textContent='🌼 水波绽放 · 再挥一次试试';}
+function spawn(x=innerWidth*.48,y=innerHeight*.45,dir=1){
+  addRipple(x,y,12,"pearl",.65);
+  setTimeout(()=>addRipple(x,y,23,"lavender",.38),130);
+  // 一次抛出数朵小雏菊，避免单朵大贴纸感
+  const count=5+Math.floor(Math.random()*3);
+  for(let i=0;i<count;i++){
+    const spread=(i-(count-1)/2)*11;
+    flowers.push({x:x+(Math.random()-.5)*15,y:y+(Math.random()-.5)*13,
+      vx:dir*(1.4+Math.random()*1.8)+(Math.random()-.5)*1.2,
+      vy:-1.5-Math.random()*1.6+spread*.035,
+      rot:Math.random()*Math.PI*2,vr:(Math.random()-.5)*.042,
+      life:135+Math.random()*50,size:12+Math.random()*8,age:0,
+      tint:Math.random()<.55?'cream':'yellow'});
+  }
+  for(let i=0;i<14;i++){let a=Math.random()*Math.PI*2,s=.6+Math.random()*2;
+    sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:42,size:.4+Math.random()*.8})}
+  promptEl.textContent='🌼 小雏菊随水波飘散 · 再挥一次';
+}
 document.getElementById('throw').onclick=()=>{spawn();log('手动抛花成功')};
 function setScene(v){scene=v;heart=null;prevDistance=null;document.querySelector('.lyrics').classList.toggle('hide',v==='love');document.getElementById('loveTitle').classList.toggle('on',v==='love');promptEl.textContent=v==='love'?'双手慢慢展开，推动粉白色水波纹':'手掌左右挥动，抛出雏菊';log('场景：'+v)}
 document.getElementById('mode').onclick=()=>setScene(scene==='petals'?'love':'petals');
@@ -23,7 +40,22 @@ function heartPoint(t){let x=16*Math.pow(Math.sin(t),3),y=-(13*Math.cos(t)-5*Mat
 function burstHeart(x,y,r){addRipple(x,y,r*.65,"pink",1.7);setTimeout(()=>addRipple(x,y,r*.9,"pearl",.8),150);for(let i=0;i<95;i++){let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t),angle=Math.atan2(hy,hx),speed=1.5+Math.random()*4;heartParticles.push({x:x+hx*r,y:y+hy*r,vx:Math.cos(angle)*speed+(Math.random()-.5)*2,vy:Math.sin(angle)*speed+(Math.random()-.5)*2,life:75+Math.random()*45,max:120,size:.65+Math.random()*1.5})}heart=null}
 function drawHeart(h){let t=performance.now()*.001;h.age=(h.age||0)+1;ctx.save();ctx.translate(h.x,h.y);ctx.globalAlpha=Math.min(.83,h.age/35);ctx.globalCompositeOperation='screen';for(let layer=2;layer>=0;layer--){let r=h.r*(.95+layer*.018)*(.85+.15*Math.min(1,h.age/35));ctx.beginPath();for(let i=0;i<=140;i++){let a=i/140*Math.PI*2,[x,y]=heartPoint(a);if(!i)ctx.moveTo(x*r,y*r);else ctx.lineTo(x*r,y*r)}ctx.closePath();ctx.strokeStyle=['rgba(255,250,255,.8)','rgba(255,215,234,.33)','rgba(217,204,255,.12)'][layer];ctx.lineWidth=[1.4,3.1,6.2][layer];ctx.shadowBlur=[5,11,16][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}for(let i=0;i<42;i++){let a=i/42*Math.PI*2,[x,y]=heartPoint(a);ctx.beginPath();ctx.fillStyle=i%3===0?'rgba(255,255,255,.8)':'rgba(255,218,238,.65)';ctx.shadowBlur=5;ctx.arc(x*h.r,y*h.r,0.6+(i%3)*.25,0,Math.PI*2);ctx.fill()}ctx.restore()}
 document.getElementById('debug').onclick=()=>logEl.classList.toggle('show');
-function daisy(x,y,size,rot,alpha){ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.globalAlpha=alpha*.88;ctx.globalCompositeOperation='screen';for(let i=0;i<10;i++){ctx.save();ctx.rotate(i*Math.PI/5);ctx.beginPath();ctx.ellipse(0,-size*.48,size*.16,size*.36,0,0,Math.PI*2);ctx.fillStyle='rgba(255,246,253,.10)';ctx.fill();ctx.strokeStyle=i%3===0?'rgba(255,246,252,.82)':'rgba(244,218,243,.64)';ctx.lineWidth=1.1;ctx.shadowColor='#ffe1f1';ctx.shadowBlur=6;ctx.stroke();ctx.restore()}ctx.beginPath();ctx.arc(0,0,size*.115,0,Math.PI*2);ctx.fillStyle='rgba(255,242,250,.38)';ctx.fill();ctx.strokeStyle='rgba(255,252,255,.72)';ctx.lineWidth=1;ctx.stroke();ctx.restore()}
+function daisy(x,y,size,rot,alpha,tint='cream'){
+  ctx.save();ctx.translate(x,y);ctx.rotate(rot);
+  ctx.globalAlpha=alpha*.9;ctx.globalCompositeOperation='screen';
+  const yellow=tint==='yellow';
+  for(let i=0;i<9;i++){
+    ctx.save();ctx.rotate(i*Math.PI*2/9);ctx.beginPath();
+    ctx.ellipse(0,-size*.42,size*.175,size*.32,0,0,Math.PI*2);
+    ctx.fillStyle=yellow?'rgba(255,227,155,.46)':'rgba(255,249,230,.38)';
+    ctx.fill();ctx.strokeStyle=yellow?'rgba(255,221,148,.7)':'rgba(255,248,231,.72)';
+    ctx.lineWidth=.65;ctx.shadowColor=yellow?'#ffe6a8':'#fff1dd';ctx.shadowBlur=2.5;
+    ctx.stroke();ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(0,0,size*.13,0,Math.PI*2);
+  ctx.fillStyle=yellow?'rgba(247,191,76,.9)':'rgba(241,204,109,.86)';
+  ctx.fill();ctx.restore();
+}
 function drawRipples(){for(let i=ripples.length-1;i>=0;i--){let p=ripples[i];p.age++;let k=p.age/p.max,r=p.r+(Math.min(innerWidth,innerHeight)*.36)*k;let fade=(1-k)*(1-k)*Math.min(1,p.power)*.78;ctx.save();ctx.globalCompositeOperation='screen';ctx.translate(p.x,p.y);ctx.scale(1,.62);for(let layer=0;layer<3;layer++){ctx.beginPath();ctx.arc(0,0,r+layer*5,0,Math.PI*2);ctx.lineWidth=[1.25,2.5,5][layer];let rgb=p.tone==='pink'?'255,219,237':p.tone==='lavender'?'226,214,255':'247,245,255';ctx.strokeStyle=`rgba(${rgb},${fade*[.7,.21,.065][layer]})`;ctx.shadowBlur=[5,9,13][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}ctx.restore();if(p.age>=p.max)ripples.splice(i,1)}}
-function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();if(scene==='love'&&heart)drawHeart(heart);for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.18+.82*Math.min(1,f.age/23)),f.rot,Math.min(1,f.age/16,f.life/40));if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V5已加载；先开摄像头与手势，再点切换场景');
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();if(scene==='love'&&heart)drawHeart(heart);for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.5+.5*Math.min(1,f.age/16)),f.rot,Math.min(1,f.age/12,f.life/35),f.tint);if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V5.3 小雏菊版已加载；先开摄像头与手势');
 </script></body></html>
