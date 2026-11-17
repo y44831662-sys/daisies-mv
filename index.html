@@ -1,45 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>DAISIES V5.5 · Crossed Love</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0b19;color:white;font-family:-apple-system,BlinkMacSystemFont,sans-serif}#camera{position:absolute;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#111}#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#07071690,transparent 25%,transparent 60%,#080815a8);pointer-events:none}.top{position:absolute;top:calc(env(safe-area-inset-top) + 16px);left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}.logo{font-weight:750;letter-spacing:2px;font-size:14px}.status{font-size:11px;background:#19182ebd;padding:8px 10px;border-radius:20px;max-width:62%;text-align:right}.bottom{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 20px);left:12px;right:12px;display:flex;flex-direction:column;align-items:center;gap:12px}.prompt{font-size:14px;text-shadow:0 2px 8px black;text-align:center}.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}button{border:0;background:#dfc3ff;color:#1b1030;font-weight:700;border-radius:22px;padding:12px 15px;font-size:13px}button.secondary{background:#22213ccf;color:white;border:1px solid #9994bb66}.panel{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 138px);max-height:32vh;overflow:auto;background:#0a091bdc;border:1px solid #ffffff33;border-radius:14px;padding:10px;font:11px/1.6 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;display:none}.panel.show{display:block}.lyrics{position:absolute;top:67%;left:15px;right:15px;text-align:center;font-size:24px;font-weight:800;text-shadow:0 2px 15px #000}.hint{font-size:12px;color:#c7b9e7;margin-top:6px;font-weight:400}.love-title{position:absolute;top:16%;left:0;right:0;text-align:center;pointer-events:none;font-weight:800;font-size:clamp(22px,7vw,36px);letter-spacing:1px;text-shadow:0 0 20px #ffb9e9;opacity:0;transition:opacity .4s}.love-title.on{opacity:1}.love-title small{display:block;font-size:13px;font-weight:500;margin-top:8px;color:#ffe4f3}.lyrics.hide{opacity:0}.lyrics{transition:opacity .3s}.bottom{z-index:5}.mode{font-size:11px;color:#ffe7f6;text-shadow:0 2px 8px #000}</style></head><body><video id="camera" autoplay muted playsinline></video><canvas id="fx"></canvas><div class="shade"></div><div class="top"><span class="logo">✿ DAISIES / V5.5</span><span id="status" class="status">等待启动</span></div><div class="lyrics" id="caption">Throwing petals</div><div id="loveTitle" class="love-title"></div><div id="log" class="panel"></div><div class="bottom"><div id="prompt" class="prompt">先开启相机，再开启手势识别</div><div class="controls"><button id="start">① 开启相机</button><button id="hands">② 开启手势</button><button id="throw" class="secondary">🌼 抛花</button><button id="love" class="secondary">💗 梦幻爱心</button><button id="mode" class="secondary">下一幕 →</button><button id="clean" class="secondary">隐藏按钮</button><button id="preview" class="secondary">预览特效</button><button id="debug" class="secondary">诊断日志</button></div></div><script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>DAISIES V5.6 · Crystal Butterfly</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0b19;color:white;font-family:-apple-system,BlinkMacSystemFont,sans-serif}#camera{position:absolute;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#111}#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#07071690,transparent 25%,transparent 60%,#080815a8);pointer-events:none}.top{position:absolute;top:calc(env(safe-area-inset-top) + 16px);left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}.logo{font-weight:750;letter-spacing:2px;font-size:14px}.status{font-size:11px;background:#19182ebd;padding:8px 10px;border-radius:20px;max-width:62%;text-align:right}.bottom{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 20px);left:12px;right:12px;display:flex;flex-direction:column;align-items:center;gap:12px}.prompt{font-size:14px;text-shadow:0 2px 8px black;text-align:center}.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}button{border:0;background:#dfc3ff;color:#1b1030;font-weight:700;border-radius:22px;padding:12px 15px;font-size:13px}button.secondary{background:#22213ccf;color:white;border:1px solid #9994bb66}.panel{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 138px);max-height:32vh;overflow:auto;background:#0a091bdc;border:1px solid #ffffff33;border-radius:14px;padding:10px;font:11px/1.6 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;display:none}.panel.show{display:block}.lyrics{position:absolute;top:73%;left:18px;right:18px;text-align:center;font-size:clamp(21px,5vw,28px);font-weight:500;letter-spacing:.08em;text-shadow:0 2px 15px #000;pointer-events:none;z-index:3}.hint{font-size:12px;color:#c7b9e7;margin-top:6px;font-weight:400}.love-title{position:absolute;top:16%;left:0;right:0;text-align:center;pointer-events:none;font-weight:800;font-size:clamp(22px,7vw,36px);letter-spacing:1px;text-shadow:0 0 20px #ffb9e9;opacity:0;transition:opacity .4s}.love-title.on{opacity:1}.love-title small{display:block;font-size:13px;font-weight:500;margin-top:8px;color:#ffe4f3}.lyrics.hide{opacity:0}.lyrics{transition:opacity .3s}.bottom{z-index:5}.prompt:empty{display:none}.controls{max-width:560px}.bottom{bottom:calc(env(safe-area-inset-bottom) + 12px)}.controls button{font-weight:500;font-size:12px;padding:10px 12px}.lyrics{transition:opacity .3s}.shade{pointer-events:none}.mode{font-size:11px;color:#ffe7f6;text-shadow:0 2px 8px #000}</style></head><body><video id="camera" autoplay muted playsinline></video><canvas id="fx"></canvas><div class="shade"></div><div class="top"><span class="logo">✿ DAISIES / V5.6</span><span id="status" class="status">Ready</span></div><div class="lyrics" id="caption">Throwing petals</div><div id="loveTitle" class="love-title"></div><div id="log" class="panel"></div><div class="bottom"><div id="prompt" class="prompt"></div><div class="controls"><button id="start">① Camera</button><button id="hands">② Gestures</button><button id="throw" class="secondary">🌼 Petals</button><button id="love" class="secondary">💗 Heart</button><button id="mode" class="secondary">Next scene →</button><button id="clean" class="secondary">Hide UI</button><button id="preview" class="secondary">Preview</button><button id="debug" class="secondary">Debug</button></div></div><script>
 const video=document.getElementById('camera'),canvas=document.getElementById('fx'),ctx=canvas.getContext('2d'),statusEl=document.getElementById('status'),logEl=document.getElementById('log'),promptEl=document.getElementById('prompt');let stream=null,detector=null,tracking=false,busy=false,previous=null,lastThrow=0,flowers=[],sparks=[];let scene="petals",heart=null,lastBurst=0,prevDistance=null,heartParticles=[],ripples=[],ambient=[];let lastRipple=0;
 const scenes=['petals','love','not','spinning','forever','hold'];
-const captions=['Throwing petals','Love me','Or not?','Head is spinning','Forever','Hold on, hold on'];
-let sceneEffect=null,prevFinger=null,gestureCooldown=0,freezeUntil=0,crossFrames=0;
+const captions=['Throwing petals','Love me','Or not','Head is spinning','Forever','Hold on, hold on'];
+let sceneEffect=null,prevFinger=null,gestureCooldown=0,freezeUntil=0,butterflies=[],lastButterfly=0;
 function showSceneEffect(kind,x=innerWidth*.5,y=innerHeight*.45){
  const now=performance.now();if(now<gestureCooldown)return;gestureCooldown=now+850;
- if(kind==='not'){if(heart){burstHeart(heart.x,heart.y,heart.r);heart=null;}else {addRipple(x,y,40,'pink',.85);burstHeart(x,y,55);}sceneEffect={kind:'not',x,y,start:now};}
- if(kind==='spinning'||kind==='forever'){sceneEffect={kind,x,y,start:now};addRipple(x,y,24,'lavender',.65);}
+ if(kind==='not'){if(heart){shatterHeart(heart.x,heart.y,heart.r);heart=null;}else {shatterHeart(x,y,65);}sceneEffect={kind:'not',x,y,start:now};}
+ if(kind==='spinning'){sceneEffect={kind,x,y,start:now};addRipple(x,y,24,'lavender',.65);}if(kind==='forever'){releaseButterflies(x,y);sceneEffect={kind,x,y,start:now};}
  if(kind==='hold'){freezeUntil=now+1050;sceneEffect={kind,x,y,start:now};addRipple(x,y,35,'pearl',.5);}
  if(kind==='petals')spawn(x,y,1);
  if(kind==='love'){heart={x,y,r:75,energy:1,age:0};addRipple(x,y,24,'pink',.7);}
 }
 function palmOpen(h){let wrist=h[0];return [8,12,16,20].filter(i=>Math.hypot(h[i].x-wrist.x,h[i].y-wrist.y)>Math.hypot(h[i-2].x-wrist.x,h[i-2].y-wrist.y)*1.17).length>=3;}
 function handHeart(hands){if(hands.length<2)return false;let a=hands[0],b=hands[1];return Math.hypot(a[4].x-b[4].x,a[4].y-b[4].y)<.16&&Math.hypot(a[8].x-b[8].x,a[8].y-b[8].y)<.17;}
-// MediaPipe Hands does not track elbows. Approximate an X using the two
-// wrist-to-middle-knuckle axes; require actual crossing, not just two hands.
-function crossedHands(hands){
- if(hands.length<2)return false;
- const a=hands[0],b=hands[1];
- const w1=a[0],m1=a[9],w2=b[0],m2=b[9];
- const cross=(p,q,r)=>(q.x-p.x)*(r.y-p.y)-(q.y-p.y)*(r.x-p.x);
- const c1=cross(w1,m1,w2),c2=cross(w1,m1,m2);
- const c3=cross(w2,m2,w1),c4=cross(w2,m2,m1);
- const intersects=c1*c2<0&&c3*c4<0;
- const v1=[m1.x-w1.x,m1.y-w1.y],v2=[m2.x-w2.x,m2.y-w2.y];
- const l1=Math.hypot(...v1),l2=Math.hypot(...v2);
- if(l1<.09||l2<.09)return false;
- const angle=Math.abs((v1[0]*v2[1]-v1[1]*v2[0])/(l1*l2));
- return intersects&&angle>.32&&Math.hypot(w1.x-w2.x,w1.y-w2.y)<.42;
+
+// Pearl-glass butterfly animation: tiny wing strokes, no emoji or infinity sign.
+function releaseButterflies(x,y){
+ for(let i=0;i<7;i++){let a=(i/7)*Math.PI*2;
+ butterflies.push({x:x+(Math.random()-.5)*45,y:y+(Math.random()-.5)*36,
+ vx:Math.cos(a)*(.35+Math.random()*.5),vy:-.45-Math.random()*.55,
+ phase:Math.random()*6.28,age:0,life:235+Math.random()*80,
+ size:7+Math.random()*6,hue:i%3});}
+ if(butterflies.length>30)butterflies.splice(0,butterflies.length-30);
 }
+function drawButterflies(){
+ const time=performance.now()*.001;
+ for(let i=butterflies.length-1;i>=0;i--){let b=butterflies[i];
+ b.age++;b.x+=b.vx+Math.sin(time*1.5+b.phase)*.28;b.y+=b.vy+Math.sin(time*1.2+b.phase)*.14;
+ let alpha=Math.min(1,b.age/25,(b.life-b.age)/42)*.83;
+ if(alpha<=0){butterflies.splice(i,1);continue;}
+ let flap=.45+.55*Math.abs(Math.sin(time*9+b.phase));
+ ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.sin(time+b.phase)*.18);ctx.globalAlpha=alpha;
+ ctx.globalCompositeOperation='screen';ctx.shadowColor=b.hue===1?'#d5c8ff':'#ffd4ee';ctx.shadowBlur=7;
+ for(let side of [-1,1]){
+ ctx.save();ctx.scale(side*flap,1);
+ ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(b.size*.3,-b.size*1.15,b.size*1.25,-b.size*1.1,b.size*.94,-b.size*.1);
+ ctx.quadraticCurveTo(b.size*.8,b.size*.17,0,0);
+ ctx.fillStyle=b.hue===1?'rgba(211,194,255,.27)':'rgba(255,212,234,.28)';ctx.fill();
+ ctx.strokeStyle='rgba(255,240,253,.8)';ctx.lineWidth=.7;ctx.stroke();
+ ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(b.size*.45,b.size*.2,b.size*.88,b.size*.85,b.size*.2,b.size*.78);
+ ctx.quadraticCurveTo(-b.size*.08,b.size*.55,0,0);ctx.fillStyle='rgba(227,212,255,.25)';ctx.fill();ctx.stroke();ctx.restore();
+ }
+ ctx.beginPath();ctx.moveTo(0,-b.size*.3);ctx.lineTo(0,b.size*.45);ctx.strokeStyle='rgba(255,249,253,.9)';ctx.lineWidth=.8;ctx.stroke();ctx.restore();
+ }
+}
+function shatterHeart(x,y,r){
+ addRipple(x,y,r*.6,'pink',.8);
+ // Fine, drifting fragments rather than an explosive burst.
+ for(let i=0;i<74;i++){
+ let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t);
+ heartParticles.push({x:x+hx*r,y:y+hy*r,
+ vx:(Math.random()-.5)*1.5+hx*.5,vy:-.2-Math.random()*1.3,
+ life:75+Math.random()*55,max:130,size:.5+Math.random()*.9});
+ }
+}
+
 function drawExtra(){if(!sceneEffect)return;let e=sceneEffect,t=(performance.now()-e.start)/1000;if(t>2.4){sceneEffect=null;return}let fade=Math.max(0,1-t/2.4);ctx.save();ctx.translate(e.x,e.y);ctx.globalCompositeOperation='screen';ctx.globalAlpha=fade;ctx.strokeStyle='rgba(231,213,255,.72)';ctx.lineWidth=1.6;ctx.shadowColor='#e8d6ff';ctx.shadowBlur=8;
 if(e.kind==='spinning'){ctx.rotate(t*2.8);for(let j=0;j<3;j++){ctx.beginPath();ctx.arc(0,0,55+j*17,j*1.8,j*1.8+Math.PI*1.2);ctx.stroke()}}
-if(e.kind==='forever'){ctx.beginPath();for(let i=0;i<=160;i++){let a=i/160*Math.PI*2;let x=105*Math.sin(a),y=45*Math.sin(2*a);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.stroke()}
-if(e.kind==='not'){ctx.rotate(-.08);for(let k of [-1,1]){ctx.beginPath();ctx.moveTo(-47,k*47);ctx.lineTo(47,-k*47);ctx.strokeStyle='rgba(255,218,239,.55)';ctx.lineWidth=1.4;ctx.stroke()} }
+
+
 if(e.kind==='hold'){ctx.beginPath();ctx.arc(0,0,55+t*24,0,Math.PI*2);ctx.stroke()}
 ctx.restore()}
 
 function log(s){let t=new Date().toLocaleTimeString('zh-CN',{hour12:false});logEl.textContent+=`${t} ${s}\n`;logEl.scrollTop=logEl.scrollHeight;statusEl.textContent=s.slice(0,36);}
 window.addEventListener('error',e=>log('JS错误: '+e.message));window.addEventListener('unhandledrejection',e=>log('Promise错误: '+String(e.reason)));
 function resize(){let d=devicePixelRatio||1;canvas.width=innerWidth*d;canvas.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)}addEventListener('resize',resize);resize();
-async function startCamera(){try{log('正在请求前置摄像头…');if(!navigator.mediaDevices?.getUserMedia)throw Error('getUserMedia不可用，请用Safari HTTPS网址');if(stream)stream.getTracks().forEach(t=>t.stop());stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});video.srcObject=stream;await video.play();log('摄像头成功 '+video.videoWidth+'×'+video.videoHeight);promptEl.textContent='摄像头已开启！下一步点②开启手势';}catch(e){log('摄像头失败 '+e.name+': '+e.message);logEl.classList.add('show')}}
+async function startCamera(){try{log('正在请求前置摄像头…');if(!navigator.mediaDevices?.getUserMedia)throw Error('getUserMedia不可用，请用Safari HTTPS网址');if(stream)stream.getTracks().forEach(t=>t.stop());stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});video.srcObject=stream;await video.play();log('摄像头成功 '+video.videoWidth+'×'+video.videoHeight);promptEl.textContent='';}catch(e){log('摄像头失败 '+e.name+': '+e.message);logEl.classList.add('show')}}
 document.getElementById('start').onclick=startCamera;
 function loadScript(url){return new Promise((resolve,reject)=>{let s=document.createElement('script');s.src=url;s.onload=resolve;s.onerror=()=>reject(Error('脚本加载失败：'+url));document.head.appendChild(s)})}
 async function startHands(){if(!stream){log('请先开启摄像头');return}if(tracking){log('手势识别已经启动');return}try{log('正在下载手势识别模型（需要网络）…');if(!window.Hands)await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js');detector=new Hands({locateFile:file=>'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/'+file});detector.setOptions({maxNumHands:2,modelComplexity:0,minDetectionConfidence:.55,minTrackingConfidence:.5});detector.onResults(onHands);tracking=true;log('手势识别已启动；请挥动手掌');detectLoop();}catch(e){tracking=false;log('手势初始化失败 '+e.message);logEl.classList.add('show')}}
@@ -54,9 +80,9 @@ if(scene==='love'){
  previous=null;return;
 }
 prevDistance=null;
-if(scene==='not'){crossFrames=crossedHands(hands)?crossFrames+1:0;if(crossFrames>=3){let a=hands[0][0],b=hands[1][0];showSceneEffect('not',(1-(a.x+b.x)/2)*innerWidth,((a.y+b.y)/2)*innerHeight);crossFrames=0;}previous=null;return}
+if(scene==='not'){previous=null;return}
 if(scene==='hold'&&palmOpen(h)){showSceneEffect('hold',x,y);previous=null;return}
-if(scene==='forever'&&hands.length>=2){let d=Math.hypot(hands[0][9].x-hands[1][9].x,hands[0][9].y-hands[1][9].y);if(d>.32)showSceneEffect('forever',innerWidth*.5,innerHeight*.44);previous=null;return}
+if(scene==='forever'&&hands.length>=1){if(now-lastButterfly>2300){releaseButterflies(x,y);lastButterfly=now;}previous=null;return}
 if(scene==='spinning'){let f=h[8],fx=(1-f.x)*innerWidth,fy=f.y*innerHeight;if(prevFinger){let dist=Math.hypot(fx-prevFinger.x,fy-prevFinger.y);if(dist>18&&dist<170)showSceneEffect('spinning',fx,fy)}prevFinger={x:fx,y:fy};previous=null;return}
 if(scene==='petals'){let nx=1-p.x,ny=p.y;if(previous){let dt=now-previous.t,speed=Math.hypot(nx-previous.x,ny-previous.y)/(dt/1000);if(dt<350&&speed>.65&&now-lastThrow>950){spawn(nx*innerWidth,ny*innerHeight,Math.sign(nx-previous.x)||1);lastThrow=now}}previous={x:nx,y:ny,t:now}}
 }
@@ -77,14 +103,14 @@ function spawn(x=innerWidth*.48,y=innerHeight*.45,dir=1){
   }
   for(let i=0;i<14;i++){let a=Math.random()*Math.PI*2,s=.6+Math.random()*2;
     sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:42,size:.4+Math.random()*.8})}
-  promptEl.textContent='🌼 小雏菊随水波飘散 · 再挥一次';
+  promptEl.textContent='';
 }
 document.getElementById('throw').onclick=()=>{spawn();log('手动抛花成功')};
-function setScene(v){scene=v;heart=null;prevDistance=null;previous=null;prevFinger=null;sceneEffect=null;crossFrames=0;document.getElementById('caption').textContent=captions[scenes.indexOf(v)]||'';document.querySelector('.lyrics').classList.remove('hide');document.getElementById('loveTitle').classList.remove('on');promptEl.textContent=({petals:'挥手 · 小雏菊',love:'双手比心，再慢慢展开',not:'双手在胸前交叉成 ❌ · 保持半秒',spinning:'食指在镜头前画圈',forever:'双手向两侧展开',hold:'手掌朝向镜头 · Freeze'})[v];log('场景：'+v)}
+function setScene(v){let savedHeart=heart;scene=v;heart=null;prevDistance=null;previous=null;prevFinger=null;sceneEffect=null;document.getElementById('caption').textContent=captions[scenes.indexOf(v)]||'';document.querySelector('.lyrics').classList.remove('hide');document.getElementById('loveTitle').classList.remove('on');promptEl.textContent='';if(v==='not'){if(savedHeart)heart=savedHeart;showSceneEffect('not',innerWidth*.5,innerHeight*.44);}if(v==='forever')showSceneEffect('forever',innerWidth*.5,innerHeight*.53);log('Scene: '+v)}
 document.getElementById('mode').onclick=()=>setScene(scenes[(scenes.indexOf(scene)+1)%scenes.length]);
 document.getElementById('love').onclick=()=>{setScene('love');showSceneEffect('love')};
 document.getElementById('preview').onclick=()=>showSceneEffect(scene);
-document.getElementById('clean').onclick=()=>{document.querySelector('.controls').style.display='none';promptEl.textContent='轻点屏幕右上角恢复按钮';};document.querySelector('.top').addEventListener('click',()=>{document.querySelector('.controls').style.display='flex'});
+document.getElementById('clean').onclick=()=>{document.querySelector('.controls').style.display='none';promptEl.textContent='';};document.querySelector('.top').addEventListener('click',()=>{document.querySelector('.controls').style.display='flex'});
 function heartPoint(t){let x=16*Math.pow(Math.sin(t),3),y=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));return [x/18,y/18]}
 function burstHeart(x,y,r){addRipple(x,y,r*.65,"pink",1.7);setTimeout(()=>addRipple(x,y,r*.9,"pearl",.8),150);for(let i=0;i<95;i++){let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t),angle=Math.atan2(hy,hx),speed=1.5+Math.random()*4;heartParticles.push({x:x+hx*r,y:y+hy*r,vx:Math.cos(angle)*speed+(Math.random()-.5)*2,vy:Math.sin(angle)*speed+(Math.random()-.5)*2,life:75+Math.random()*45,max:120,size:.65+Math.random()*1.5})}heart=null}
 function drawHeart(h){let t=performance.now()*.001;h.age=(h.age||0)+1;ctx.save();ctx.translate(h.x,h.y);ctx.globalAlpha=Math.min(.83,h.age/35);ctx.globalCompositeOperation='screen';for(let layer=2;layer>=0;layer--){let r=h.r*(.95+layer*.018)*(.85+.15*Math.min(1,h.age/35));ctx.beginPath();for(let i=0;i<=140;i++){let a=i/140*Math.PI*2,[x,y]=heartPoint(a);if(!i)ctx.moveTo(x*r,y*r);else ctx.lineTo(x*r,y*r)}ctx.closePath();ctx.strokeStyle=['rgba(255,250,255,.8)','rgba(255,215,234,.33)','rgba(217,204,255,.12)'][layer];ctx.lineWidth=[1.4,3.1,6.2][layer];ctx.shadowBlur=[5,11,16][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}for(let i=0;i<42;i++){let a=i/42*Math.PI*2,[x,y]=heartPoint(a);ctx.beginPath();ctx.fillStyle=i%3===0?'rgba(255,255,255,.8)':'rgba(255,218,238,.65)';ctx.shadowBlur=5;ctx.arc(x*h.r,y*h.r,0.6+(i%3)*.25,0,Math.PI*2);ctx.fill()}ctx.restore()}
@@ -106,5 +132,5 @@ function daisy(x,y,size,rot,alpha,tint='cream'){
   ctx.fill();ctx.restore();
 }
 function drawRipples(){for(let i=ripples.length-1;i>=0;i--){let p=ripples[i];p.age++;let k=p.age/p.max,r=p.r+(Math.min(innerWidth,innerHeight)*.36)*k;let fade=(1-k)*(1-k)*Math.min(1,p.power)*.78;ctx.save();ctx.globalCompositeOperation='screen';ctx.translate(p.x,p.y);ctx.scale(1,.62);for(let layer=0;layer<3;layer++){ctx.beginPath();ctx.arc(0,0,r+layer*5,0,Math.PI*2);ctx.lineWidth=[1.25,2.5,5][layer];let rgb=p.tone==='pink'?'255,219,237':p.tone==='lavender'?'226,214,255':'247,245,255';ctx.strokeStyle=`rgba(${rgb},${fade*[.7,.21,.065][layer]})`;ctx.shadowBlur=[5,9,13][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}ctx.restore();if(p.age>=p.max)ripples.splice(i,1)}}
-function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();drawExtra();if(scene==='love'&&heart)drawHeart(heart);if(performance.now()<freezeUntil){requestAnimationFrame(draw);return;}for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.5+.5*Math.min(1,f.age/16)),f.rot,Math.min(1,f.age/12,f.life/35),f.tint);if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V5.5 双手交叉版已加载；请先开启摄像头与手势');
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();drawExtra();if(scene==='love'&&heart)drawHeart(heart);drawButterflies();if(performance.now()<freezeUntil){requestAnimationFrame(draw);return;}for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.5+.5*Math.min(1,f.age/16)),f.rot,Math.min(1,f.age/12,f.life/35),f.tint);if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V5.6 Crystal Butterfly ready');
 </script></body></html>
