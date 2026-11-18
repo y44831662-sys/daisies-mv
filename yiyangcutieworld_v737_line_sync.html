@@ -1,0 +1,826 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>yiyangcutieworld V7.3.7 · Diary Lyrics · calibrated</title><style>@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0b19;color:white;font-family:-apple-system,BlinkMacSystemFont,sans-serif}#camera{position:absolute;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#111}#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#07071690,transparent 25%,transparent 60%,#080815a8);pointer-events:none}.top{position:absolute;top:calc(env(safe-area-inset-top) + 16px);left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}.logo{font-weight:750;letter-spacing:2px;font-size:14px}.status{font-size:11px;background:#19182ebd;padding:8px 10px;border-radius:20px;max-width:62%;text-align:right}.bottom{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 20px);left:12px;right:12px;display:flex;flex-direction:column;align-items:center;gap:12px}.prompt{font-size:14px;text-shadow:0 2px 8px black;text-align:center}.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}button{border:0;background:#dfc3ff;color:#1b1030;font-weight:700;border-radius:22px;padding:12px 15px;font-size:13px}button.secondary{background:#22213ccf;color:white;border:1px solid #9994bb66}.panel{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 138px);max-height:32vh;overflow:auto;background:#0a091bdc;border:1px solid #ffffff33;border-radius:14px;padding:10px;font:11px/1.6 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;display:none}.panel.show{display:block}.lyrics{position:absolute;top:73%;left:18px;right:18px;text-align:center;font-size:clamp(21px,5vw,28px);font-weight:500;letter-spacing:.08em;text-shadow:0 2px 15px #000;pointer-events:none;z-index:3}.hint{font-size:12px;color:#c7b9e7;margin-top:6px;font-weight:400}.love-title{position:absolute;top:16%;left:0;right:0;text-align:center;pointer-events:none;font-weight:800;font-size:clamp(22px,7vw,36px);letter-spacing:1px;text-shadow:0 0 20px #ffb9e9;opacity:0;transition:opacity .4s}.love-title.on{opacity:1}.love-title small{display:block;font-size:13px;font-weight:500;margin-top:8px;color:#ffe4f3}.lyrics.hide{opacity:0}.lyrics{transition:opacity .3s}.bottom{z-index:5}.prompt:empty{display:none}.controls{max-width:560px}.bottom{bottom:calc(env(safe-area-inset-bottom) + 12px)}.controls button{font-weight:500;font-size:12px;padding:10px 12px}.lyrics{transition:opacity .3s}.shade{pointer-events:none}.mode{font-size:11px;color:#ffe7f6;text-shadow:0 2px 8px #000}
+/* V5.9 — Dreamy Bloom */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap');
+html,body{background:#18131e;font-family:'DM Sans',-apple-system,sans-serif}
+#camera{z-index:0;background:radial-gradient(ellipse at 50% 35%,#65506b 0%,#2d2338 56%,#15121d 100%)}
+#fx{z-index:2}
+.shade{z-index:1;background:linear-gradient(180deg,rgba(20,12,27,.46) 0%,rgba(32,18,38,.06) 28%,rgba(28,18,34,.02) 58%,rgba(21,14,30,.53) 100%),radial-gradient(ellipse at 50% 43%,transparent 38%,rgba(92,57,92,.17) 100%)}
+.top{z-index:6;top:calc(env(safe-area-inset-top) + 20px);left:23px;right:23px;align-items:flex-start}
+.logo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:20px;letter-spacing:.27em;color:#fff2e7;text-shadow:0 2px 15px #352034}
+.logo:after{content:'ENCHANTED GARDEN';display:block;margin-top:5px;font-family:'DM Sans',sans-serif;font-size:7px;font-weight:500;letter-spacing:.33em;color:#f4d8df}
+.status{font-size:10px;background:rgba(44,30,49,.24);border:1px solid rgba(255,242,238,.2);backdrop-filter:blur(12px);max-width:43%;line-height:1.4;color:#fff0ec;padding:7px 10px}
+.lyrics{z-index:4;top:auto;bottom:23%;left:12px;right:12px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(37px,9vw,59px);line-height:1.05;letter-spacing:.015em;color:#fff2e7;text-shadow:0 2px 18px #4e294e,0 0 38px #ffbed088}
+.love-title{z-index:4;top:19%;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(32px,9vw,54px);letter-spacing:.02em;color:#fff0e8}
+.love-title small{font-family:'DM Sans',sans-serif;font-style:normal;font-size:10px;letter-spacing:.15em}
+.bottom{z-index:8;left:14px;right:14px;bottom:calc(env(safe-area-inset-bottom) + 10px);gap:5px}
+.controls{max-width:420px;gap:7px;padding:10px 9px;background:rgba(35,25,45,.42);border:1px solid rgba(255,241,233,.21);border-radius:23px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 40px #140c2055}
+.controls button{border:1px solid #fff0e844;background:rgba(247,227,239,.14);color:#fff1ea;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:.02em;border-radius:100px;padding:9px 11px;min-height:35px}
+.controls button:first-child,.controls button:nth-child(2){background:#e9d4e5;color:#3e3046}
+.controls button.secondary{background:rgba(255,235,244,.1);color:#fff3ef;border-color:#fff4f044}
+.prompt{display:none!important}
+.panel{z-index:10;bottom:190px;background:#261e31ed}
+.garden-frame{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;opacity:.72}
+.garden-frame:before,.garden-frame:after{content:'';position:absolute;top:11%;width:110px;height:45%;border:1px solid transparent;filter:drop-shadow(0 0 9px #ffb6df33)}
+.garden-frame:before{left:-56px;border-right-color:#ffdfdf5e;border-radius:0 75% 55% 0;transform:rotate(-13deg)}
+.garden-frame:after{right:-56px;border-left-color:#fff0d466;border-radius:75% 0 0 55%;transform:rotate(13deg)}
+.vine{position:absolute;width:135px;height:270px;top:15%;opacity:.65;filter:drop-shadow(0 0 8px #fbd8e65c)}
+.vine.left{left:-55px;transform:rotate(-9deg)}.vine.right{right:-55px;transform:scaleX(-1) rotate(-9deg)}
+.garden-spark{position:absolute;font-size:12px;color:#fff1d9;animation:twinkle 4s ease-in-out infinite;opacity:.55}
+.garden-spark.a{left:13%;top:28%}.garden-spark.b{right:12%;top:43%;animation-delay:1.5s}.garden-spark.c{left:20%;top:65%;animation-delay:2.5s}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.65)}50%{opacity:.8;transform:scale(1.15)}}
+body.cinematic .top,body.cinematic .bottom,body.cinematic .panel{display:none!important}
+body.cinematic .lyrics{bottom:13%}
+#restore{display:none;position:absolute;z-index:20;top:calc(env(safe-area-inset-top) + 10px);right:10px;width:35px;height:35px;border:0;background:transparent;color:#fff8;font-size:17px}
+body.cinematic #restore{display:block}
+@media(max-height:720px){.lyrics{bottom:29%}.controls button{padding:7px 9px;min-height:30px}}
+
+/* V7.1.2: user-adjustable song synchronization */
+.sync-panel{display:flex;align-items:center;gap:8px;width:min(420px,100%);padding:8px 12px;border:1px solid #fff4f044;border-radius:16px;background:rgba(35,25,45,.6);backdrop-filter:blur(12px);font:11px 'DM Sans',sans-serif;color:#fff3ef;z-index:9}
+.sync-panel label{flex:0 0 auto;font-size:10px}.sync-panel input{min-width:0;flex:1;accent-color:#f3c6e5;touch-action:pan-x}.sync-panel output{min-width:40px;text-align:right;font-variant-numeric:tabular-nums}
+body.cinematic .sync-panel{display:none}
+/* MV sync interface */
+.bottom{max-height:68vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.bottom::-webkit-scrollbar{display:none}
+.sync-panel{flex-shrink:0}
+.sync-panel label{width:135px;flex:0 0 135px}
+
+.mv-clock{position:absolute;top:calc(env(safe-area-inset-top) + 55px);left:16px;z-index:5;color:#fff2e9;font:10px 'DM Sans',sans-serif;letter-spacing:.15em;text-shadow:0 1px 8px #25112e;pointer-events:none}
+.audio-upload{display:inline-flex;align-items:center;padding:9px 12px;border-radius:100px;min-height:35px;border:1px solid #fff4f044;background:rgba(255,235,244,.1);color:#fff3ef;font:10px 'DM Sans',sans-serif;cursor:pointer}
+#mvStart{background:#f2d9e9;color:#422e48;font-weight:700}
+body.cinematic .mv-clock{opacity:0}
+/* Cinematic focus pull: blur video and visual effects, not the caption. */
+#camera,#fx,.garden-frame,.shade{transition:filter 1.85s cubic-bezier(.18,.5,.25,1),opacity 1.85s ease;}
+body.hold-blur #camera,body.hold-blur #fx,body.hold-blur .garden-frame,body.hold-blur .shade{filter:blur(19px) brightness(.88);}
+body.hold-clear #camera,body.hold-clear #fx,body.hold-clear .garden-frame,body.hold-clear .shade{filter:blur(0px);}
+body.hold-blur .lyrics{letter-spacing:.025em;opacity:1;}
+
+/* V7.3.7: Audio-locked slow focus pull and a gentle camera squeeze. */
+#camera,#beautyCanvas,#fx,.garden-frame,.shade{transition:none!important;}
+#camera{transform:scaleX(-1) scale(var(--promise-zoom,1));filter:blur(var(--dream-blur,0px)) brightness(1.055) saturate(.96) contrast(.99)}
+#beautyCanvas,#fx,.garden-frame,.shade{filter:blur(var(--dream-blur,0px));}
+#beautyCanvas,#fx{transform:scale(var(--promise-zoom,1));transform-origin:50% 50%;}
+body.hold-blur #camera,body.hold-clear #camera{filter:blur(var(--dream-blur,0px)) brightness(1.055) saturate(.96) contrast(.99)}
+body.hold-blur #beautyCanvas,body.hold-clear #beautyCanvas,body.hold-blur #fx,body.hold-clear #fx,body.hold-blur .garden-frame,body.hold-clear .garden-frame,body.hold-blur .shade,body.hold-clear .shade{filter:blur(var(--dream-blur,0px))}
+/* V6.4 GPU face reshape · Face Landmarker */
+#beautyCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;transform:none}
+#camera{filter:brightness(1.055) saturate(.96) contrast(.99)}
+body.hold-blur #beautyCanvas{filter:blur(19px) brightness(.88)}
+body.hold-clear #beautyCanvas{filter:blur(0)}
+.beauty-panel{display:none;position:absolute;z-index:15;bottom:calc(env(safe-area-inset-bottom) + 155px);left:16px;right:16px;max-width:420px;margin:auto;padding:15px;border:1px solid #ffffff4d;border-radius:20px;background:#271c33ed;backdrop-filter:blur(15px);font:12px 'DM Sans',sans-serif;color:#fff5f3}
+.beauty-panel.open{display:block}.beauty-panel label{display:flex;align-items:center;gap:10px;margin:10px 0}.beauty-panel input[type=range]{flex:1;min-width:50px;accent-color:#e9bedb}.beauty-panel span{min-width:28px;text-align:right}.beauty-panel .note{font-size:10px;line-height:1.5;color:#e6d4e5}
+body.cinematic .beauty-panel{display:none}
+
+/* First-time guide */
+#helpToggle{position:fixed;top:calc(env(safe-area-inset-top) + 68px);right:12px;z-index:19;border:1px solid #e9cfe6;background:rgba(38,25,49,.76);color:#fff;border-radius:99px;padding:8px 13px;font:600 12px system-ui;backdrop-filter:blur(10px)}
+#guide{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(19,12,27,.7);backdrop-filter:blur(15px);overflow:auto}
+#guide.open{display:flex}
+#guideCard{width:min(440px,100%);max-height:90dvh;overflow:auto;background:linear-gradient(145deg,#fff9fc,#f4e9f6);border:1px solid #fff;border-radius:25px;padding:25px 22px;color:#725676;box-shadow:0 20px 65px #130d1c80;font-family:system-ui,sans-serif}
+#guideCard h1{font:italic 30px Georgia,serif;overflow-wrap:anywhere;text-align:center;margin:8px 0;color:#76517e}
+#guideCard .sub{text-align:center;color:#ab88a8;font-size:12px;margin-bottom:19px}
+#guideCard .step{display:flex;gap:12px;align-items:flex-start;margin:14px 0;font-size:13px;line-height:1.55}
+#guideCard .step b{color:#735576}
+#guideCard .num{background:#e7d2e8;border-radius:50%;height:28px;min-width:28px;display:grid;place-items:center;color:#735576;font-weight:700}
+#guideCard .fine{font-size:11px;line-height:1.55;color:#a0839e;margin:15px 0}
+#guideGo{display:block;width:100%;padding:14px;border:0;border-radius:24px;background:#b58fc1;color:white;font-size:15px;font-weight:650}
+body.cinematic #helpToggle{display:none}
+
+/* V7.0: clean viewer experience */
+#mvStart{font-size:13px;min-height:43px;padding:11px 22px;background:linear-gradient(120deg,#f5e2ee,#f5d6e5);box-shadow:0 0 18px #ffcae855}
+.gesture-hint{position:absolute;z-index:5;bottom:18%;left:16px;right:16px;text-align:center;font:italic 17px Georgia,serif;color:#ffe6f2;text-shadow:0 2px 12px #30162d;pointer-events:none;transition:opacity .5s}
+.top .logo{font-size:clamp(14px,4vw,19px);letter-spacing:.14em;overflow-wrap:anywhere;max-width:62%}
+.top .status{max-width:35%;font-size:9px;overflow-wrap:anywhere}
+body.cinematic .gesture-hint{bottom:9%}
+
+/* V7.0: paper-diary speech balloon, thin ink border, unobtrusive overlay */
+.diary-lyrics{top:auto;bottom:23%;left:11%;right:11%;width:78%;min-height:82px;display:flex;align-items:center;justify-content:center;padding:16px 22px 22px;z-index:4;font-family:'Comic Sans MS','Bradley Hand','Segoe Print',cursive;font-style:normal;font-size:clamp(23px,6vw,36px);letter-spacing:.025em;color:#352a38;text-shadow:none;background:rgba(255,243,247,.76);border:1.6px solid rgba(55,40,53,.86);border-radius:42% 48% 39% 44% / 34% 42% 37% 40%;transform:rotate(-1.4deg);box-shadow:0 3px 19px #3c253020;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);pointer-events:none}
+.diary-lyrics:after{content:'';position:absolute;bottom:-11px;right:17%;width:18px;height:18px;background:rgba(255,243,247,.76);border-right:1.6px solid rgba(55,40,53,.86);border-bottom:1.6px solid rgba(55,40,53,.86);transform:rotate(35deg) skew(-10deg);border-radius:0 0 5px 0}
+.diary-lyrics:empty{display:none}
+.diary-enter{animation:diaryIn .6s ease-out both}
+@keyframes diaryIn{from{opacity:0;transform:translateY(9px) rotate(-2.7deg) scale(.97)}to{opacity:1;transform:translateY(0) rotate(-1.4deg) scale(1)}}
+#gestureHint{bottom:17%;font-size:12px;letter-spacing:.04em;opacity:.78}
+#start,#hands{background:rgba(247,227,239,.22);border-color:#ffe3f2a8}
+@media(max-height:760px){.diary-lyrics{bottom:27%;min-height:62px;padding:10px 16px 16px}}
+/* Breath-on-glass layer, separate from water refraction */
+#fogGlass{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:0;transition:opacity .55s ease}
+body.fog-opening #fogGlass{opacity:1}
+.lyric-editor{position:absolute;z-index:30;left:12px;right:12px;top:12%;max-height:70vh;overflow-y:auto;padding:18px;border:1px solid #ffe4f077;border-radius:22px;background:#21182beF;box-shadow:0 10px 35px #0008;color:#fff0f5;font:14px/1.5 -apple-system,sans-serif;backdrop-filter:blur(16px)}.lyric-editor[hidden]{display:none}.lyric-editor-head{display:flex;justify-content:space-between;align-items:center}.lyric-editor p{font-size:12px;color:#ead8e8}.lyric-editor label{display:block;margin:11px 0 3px;font-size:12px}.lyric-editor textarea{display:block;width:100%;min-height:54px;border:1px solid #fff7;border-radius:12px;padding:10px;background:#fff9;color:#251827;font-size:15px;resize:vertical}.lyric-editor button{margin-top:8px}.diary-lyrics{font-size:clamp(18px,4.8vw,27px);line-height:1.28;overflow-wrap:anywhere;white-space:pre-line;max-height:23vh;overflow:hidden}.diary-lyrics:empty{display:none}body.cinematic .lyric-editor{display:none}
+/* V7.3.7: floating, bold, twinkling lyrics — no speech balloon or white outline */
+.diary-lyrics{left:7%;right:7%;width:86%;bottom:24%;min-height:0;padding:8px 5px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:ui-rounded,"Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;font-size:clamp(21px,5.8vw,32px);font-weight:900;line-height:1.3;letter-spacing:.01em;color:#ffe0f1;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none;text-shadow:0 2px 4px rgba(58,21,67,.82),0 0 12px rgba(255,159,223,.96),0 0 28px rgba(251,175,238,.67);filter:drop-shadow(0 0 3px rgba(255,255,255,.45));animation:lyricShimmer 3s ease-in-out infinite alternate;pointer-events:none}
+.diary-lyrics:after{display:none!important;content:none!important}
+.diary-lyrics:not(:empty):before{content:"✦";position:absolute;top:-8px;right:1%;font-size:16px;color:#fff8e8;text-shadow:0 0 8px #fff,0 0 16px #ffd4f2;animation:lyricTwinkle 2.2s ease-in-out infinite;pointer-events:none}
+.diary-enter{animation:lyricPop .5s cubic-bezier(.2,.8,.2,1) both,lyricShimmer 3s .5s ease-in-out infinite alternate}
+@keyframes lyricPop{from{opacity:0;transform:translateY(10px) scale(.93)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes lyricShimmer{from{text-shadow:0 2px 4px rgba(58,21,67,.82),0 0 10px #ff9fdf,0 0 20px #ffd3f0}to{text-shadow:0 2px 5px rgba(58,21,67,.84),0 0 16px #fff0fa,0 0 32px #ffb6ec}}
+@keyframes lyricTwinkle{0%,100%{opacity:.3;transform:scale(.7) rotate(-12deg)}50%{opacity:1;transform:scale(1.25) rotate(12deg)}}
+@media(max-height:760px){.diary-lyrics{bottom:28%;padding:6px 4px}}
+
+/* V7.3.7 — handwritten diary captions, subtle glow and no competing hints */
+
+.diary-lyrics{
+  top:auto;bottom:30%;left:8%;right:8%;width:84%;
+  padding:4px 2px;min-height:0;max-height:29vh;
+  font-family:'Kalam','Bradley Hand','Chalkboard SE','Segoe Print',cursive;
+  font-weight:700;font-style:normal;
+  font-size:clamp(22px,5.5vw,31px);line-height:1.35;letter-spacing:.005em;
+  color:#ffe8f2;background:none!important;border:0!important;
+  box-shadow:none!important;filter:none!important;
+  text-shadow:0 1px 3px rgba(39,20,43,.7),0 0 6px rgba(252,190,224,.28);
+  animation:none;transform:none;white-space:pre-line;
+}
+.diary-lyrics:not(:empty):before{font-size:12px;top:-9px;right:3%;text-shadow:0 0 5px rgba(255,220,241,.5);animation:lyricTwinkle 3.5s ease-in-out infinite}
+.diary-enter{animation:diarySoftIn .45s ease-out both}
+@keyframes diarySoftIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* The glass-tracing instruction is only visible during the fog opening. */
+#gestureHint{bottom:14%;left:12%;right:12%;font-size:12px;opacity:.72}
+body.cinematic .diary-lyrics{bottom:17%}
+body.cinematic #gestureHint{bottom:8%}
+@media(max-height:760px){.diary-lyrics{bottom:33%;font-size:clamp(20px,5.2vw,28px)}}
+
+/* Final optical overrides (keep after legacy beauty rules). */
+#camera{filter:blur(var(--dream-blur,0px)) brightness(1.055) saturate(.96) contrast(.99)!important;transform:scaleX(-1) scale(var(--promise-zoom,1))!important;transition:none!important}
+#beautyCanvas,#fx{filter:blur(var(--dream-blur,0px))!important;transform:scale(var(--promise-zoom,1))!important;transition:none!important}
+.garden-frame,.shade{filter:blur(var(--dream-blur,0px))!important;transition:none!important}
+
+#gestureMonitor{position:absolute;z-index:8;top:calc(env(safe-area-inset-top) + 108px);left:12px;max-width:72%;background:#1c1425bd;border:1px solid #ffffff50;border-radius:13px;padding:7px 10px;color:#fff0fa;font:11px/1.5 system-ui;pointer-events:none;backdrop-filter:blur(6px)}
+#gestureMonitor b{color:#ffe2f4}#fogGlass{touch-action:none}
+
+/* Film mode is a clean recording surface; diagnostics remain available outside it. */
+body.cinematic #gestureMonitor,body.cinematic #gestureHint,body.cinematic #log,body.cinematic #prompt{display:none!important}
+body.cinematic .top{opacity:0;pointer-events:none}
+body.cinematic .lyrics{bottom:12%;max-width:88%;margin:auto}
+#gestureMonitor{transition:opacity .18s ease}
+</style></head><body><button id="helpToggle" type="button" aria-label="How to play">? How to play</button>
+<div id="guide" role="dialog" aria-modal="true" aria-label="How to play"><div id="guideCard">
+<div class="sub">✧ WELCOME TO YOUR FAIRY WORLD ✧</div><h1>yiyangcutieworld</h1><div class="sub">A little dream, written in starlight ✧</div>
+<div class="step"><span class="num">1</span><span><b>Camera</b> — Tap Enable Camera and allow front-camera access, then press Start my fairy tale. Your camera stays on your device.</span></div>
+<div class="step"><span class="num">2</span><span><b>Gestures</b> — Gestures start automatically when possible. Each effect needs a gesture: wave for flowers, hand heart for love, rotate two hands for water, V signs for forever, close hands for the second or not, and STOP palm for Hold on.</span></div>
+<div class="step"><span class="num">3</span><span><b>Music (optional)</b> — Tap Local audio to select your own audio file. The MV begins at 00:14 and effects start at 00:16.5. Without audio, Start MV runs a silent timed preview.</span></div>
+<div class="step"><span class="num">4</span><span><b>Start MV</b> — Press Start my fairy tale once. The song changes the active gesture, but effects only appear when you perform it. Beauty and Film mode are optional.</span></div>
+<div class="fine">For best results, use Safari on iPhone in good lighting. Camera and gesture permissions are required for interactive effects. Audio chosen from Files is read locally; don't upload copyrighted music to a public repository. To reopen this guide, tap “? How to play”.</div>
+<button id="guideGo" type="button">Enter my fairy world ✧</button></div></div>
+<video id="camera" autoplay muted playsinline></video><canvas id="beautyCanvas"></canvas><canvas id="fx"></canvas><canvas id="fogGlass"></canvas><div class="shade"></div><div class="garden-frame" aria-hidden="true"><svg class="vine left" viewBox="0 0 135 270" fill="none"><path d="M30 265 C82 204 17 159 83 103 C113 77 72 42 113 8" stroke="#ffe9dc" stroke-width="1.1" opacity=".8"/><g fill="#e9d4e5" opacity=".62"><ellipse cx="61" cy="209" rx="8" ry="18" transform="rotate(48 61 209)"/><ellipse cx="34" cy="170" rx="7" ry="17" transform="rotate(-36 34 170)"/><ellipse cx="77" cy="127" rx="7" ry="15" transform="rotate(49 77 127)"/><ellipse cx="68" cy="79" rx="7" ry="14" transform="rotate(-45 68 79)"/></g><circle cx="89" cy="94" r="3" fill="#fff0d4"/></svg><svg class="vine right" viewBox="0 0 135 270" fill="none"><path d="M30 265 C82 204 17 159 83 103 C113 77 72 42 113 8" stroke="#ffe9dc" stroke-width="1.1" opacity=".8"/><g fill="#e9d4e5" opacity=".62"><ellipse cx="61" cy="209" rx="8" ry="18" transform="rotate(48 61 209)"/><ellipse cx="34" cy="170" rx="7" ry="17" transform="rotate(-36 34 170)"/><ellipse cx="77" cy="127" rx="7" ry="15" transform="rotate(49 77 127)"/><ellipse cx="68" cy="79" rx="7" ry="14" transform="rotate(-45 68 79)"/></g><circle cx="89" cy="94" r="3" fill="#fff0d4"/></svg><span class="garden-spark a">✧</span><span class="garden-spark b">✦</span><span class="garden-spark c">✧</span></div><button id="restore" aria-label="Show controls">✧</button><div class="top"><span class="logo">✧ yiyangcutieworld <small style="font-size:9px;opacity:.7">V7.3.7</small></span><span id="status" class="status">Ready</span></div><div class="lyrics diary-lyrics" id="caption"></div><div id="gestureMonitor">Hands: — · Model: waiting<br><b>Gesture: —</b></div><div id="gestureHint" class="gesture-hint" aria-live="polite"></div><div id="loveTitle" class="love-title"></div><div id="log" class="panel"></div><div id="mvClock" class="mv-clock">READY · 00:14.0</div><audio id="mvAudio" preload="metadata"></audio><div class="bottom"><div id="prompt" class="prompt"></div><div class="controls"><button id="mvStart">✧ Start my fairy tale</button><button id="mvStop" class="secondary" style="display:none">↺ Reset</button><button id="start">① Enable Camera</button><button id="hands">② Gestures</button><button id="throw" class="secondary" style="display:none">✿ Flowers</button><button id="love" class="secondary" style="display:none">💗 Heart test</button><button id="mode" class="secondary" style="display:none">Next scene →</button><button id="clean" class="secondary">Film mode</button><button id="preview" class="secondary" style="display:none">Preview</button><button id="beautyButton" class="secondary">✧ Beauty</button><button id="debug" class="secondary">Debug</button><button id="editLyrics" class="secondary">✎ Lyrics</button><button id="advanced" class="secondary">⚙ Test tools</button><label class="audio-upload">♫ Local audio<input id="audioFile" type="file" accept=".mp3,.m4a,.wav,.aac,.ogg,audio/mpeg,audio/mp4,audio/wav,audio/aac,audio/*" style="display:none"></label></div><div class="sync-panel"><label for="cue-petals">✿ Throwing petals</label><input id="cue-petals" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-petals">0.0s</output></div><div class="sync-panel"><label for="cue-love">♡ Love me</label><input id="cue-love" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-love">0.0s</output></div><div class="sync-panel"><label for="cue-not">♡ Or not (first)</label><input id="cue-not" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-not">0.0s</output></div><div class="sync-panel"><label for="cue-spinning">≈ Head is spinning</label><input id="cue-spinning" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-spinning">0.0s</output></div><div class="sync-panel"><label for="cue-forever">✧ Forever</label><input id="cue-forever" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-forever">0.0s</output></div><div class="sync-panel"><label for="cue-not2">♡ Or not (second)</label><input id="cue-not2" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-not2">0.0s</output></div><div class="sync-panel"><label for="cue-hold1">✋ Hold on (blur)</label><input id="cue-hold1" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-hold1">0.0s</output></div><div class="sync-panel"><label for="cue-hold2">✋ Hold on (clear)</label><input id="cue-hold2" type="range" min="-3" max="3" step="0.1" value="0"><output id="cue-value-hold2">0.0s</output></div></div><div class="lyric-editor" id="lyricEditor" hidden><div class="lyric-editor-head"><strong>✧ My diary · 完整歌词</strong><button type="button" id="closeLyricEditor">完成</button></div><p>已根据你提供的歌词截图预填英文歌词。也可以在这里修改；你的修改只保存在本机。</p><div id="lyricFields"></div><button type="button" id="saveLyrics">保存歌词 ♡</button><span id="lyricSaved" aria-live="polite"></span></div><div class="beauty-panel" id="beautyPanel"><strong>✧ Korean Soft Glow · MAX</strong><label><input type="checkbox" id="beautyOn" checked> Beauty on</label><label>Skin smooth <input id="smooth" type="range" min="0" max="70" value="40"><span id="smoothVal">40</span></label><label>Brighten <input id="bright" type="range" min="0" max="50" value="20"><span id="brightVal">20</span></label><p class="note">Natural soft glow defaults. Face-aware smoothing and brightening are on. Slim face, smaller head and bigger eyes use live face tracking when the model loads. Face tracking may take a moment to load.</p><button id="beautyClose" class="secondary">Close</button></div><script>
+const video=document.getElementById('camera'),canvas=document.getElementById('fx'),ctx=canvas.getContext('2d'),statusEl=document.getElementById('status'),logEl=document.getElementById('log'),promptEl=document.getElementById('prompt');let stream=null,detector=null,tracking=false,busy=false,previous=null,lastThrow=0,flowers=[],sparks=[];let scene="petals",heart=null,lastBurst=0,prevDistance=null,heartParticles=[],ripples=[],ambient=[];let lastRipple=0;
+const scenes=['petals','love','not','spinning','forever','not2','hold1','hold2'];
+const captions=['Throwing petals','Love me','Or not','Head is spinning','Forever','Or not','Hold on','Hold on'];
+// Editable full lines are entered by the listener and kept on this device only.
+const lyricKeys=['petals','love','not','spinning','forever','hold1','hold2'];
+const lyricStorageKey='yiyangcutieworld_diary_lyrics_v2';
+const defaultLyrics={petals:'Throwing petals like,',love:'“Do you love me',not:'or not?”',spinning:"Head is spinning\nand it don't know when to stop",forever:'But you said “forever,” babe,\ndid you mean it or not?',hold1:'Hold on,',hold2:'hold on'};
+let customLyrics={};try{customLyrics=JSON.parse(localStorage.getItem(lyricStorageKey)||'{}')||{}}catch(e){}
+function lyricForScene(v){return (customLyrics[v]||'').trim()||defaultLyrics[v]||captions[scenes.indexOf(v)]||'';}
+const lyricNames=['Throwing petals','Love me','Or not','Head is spinning','Forever','Hold on (first)','Hold on (second)'];
+const lyricFields=document.getElementById('lyricFields');
+lyricKeys.forEach((key,i)=>{const label=document.createElement('label');label.textContent=lyricNames[i];const area=document.createElement('textarea');area.id='lyric_'+key;area.placeholder='在这里输入这一句的完整歌词';area.value=customLyrics[key]||defaultLyrics[key]||'';label.appendChild(area);lyricFields.appendChild(label)});
+document.getElementById('editLyrics').onclick=()=>{document.getElementById('lyricEditor').hidden=false};
+document.getElementById('closeLyricEditor').onclick=()=>{document.getElementById('lyricEditor').hidden=true};
+document.getElementById('saveLyrics').onclick=()=>{lyricKeys.forEach(key=>customLyrics[key]=document.getElementById('lyric_'+key).value.trim());try{localStorage.setItem(lyricStorageKey,JSON.stringify(customLyrics));document.getElementById('lyricSaved').textContent=' 已保存在此浏览器 ♡'}catch(e){document.getElementById('lyricSaved').textContent=' 暂时保存到当前页面'}if(scene)document.getElementById('caption').textContent=lyricForScene(scene)};
+
+
+let sceneEffect=null,prevFinger=null,gestureCooldown=0,freezeUntil=0,butterflies=[],foreverInkStart=0,lastButterfly=0,brokenHeart=null,cheekHeartFrames=0,lastCheekHeart=0;
+let promiseCenter={x:innerWidth*.5,y:innerHeight*.51},promiseGestureSeen=false,closeStart=0,closeGestureArmed=false,not2Start=0,not2Zoom=0;
+// All visual cues are gesture-gated. Song timing only selects the active gesture.
+let heartArmed=null,heartArmedAt=0,heartLastDrawn=0,heartStableUntil=0,heartCandidateFrames=0;let spinTrail=[],spinAngle=0,spinTurn=0,spinLast=0,holdGestureAt=0,holdFocus=0,holdTarget=0,holdGestureLatched=false,not2LastDistance=null;let gestureFrames=0,lastMonitor=0,handHistory=[],lastHeartSeen=0,spinCenters=[];let lastTwoHands=null,lastTwoHandsAt=0,foreverArmedAt=0,foreverArmedCenter=null,holdOpenFrames=0;const monitor=document.getElementById('gestureMonitor');function updateMonitor(count,label){const now=performance.now();if(now-lastMonitor<180)return;lastMonitor=now;monitor.innerHTML='Hands: '+count+'/2 · Model: '+(tracking?'running':'waiting')+'<br><b>Gesture: '+label+'</b>';}
+const cueHints={petals:'✧ Wave your hand to scatter daisies',love:'♡ Make a heart with two hands or beside your cheek',not:'♡ Open your heart hands to release the bubble',spinning:'≈ Rotate both hands in circles',forever:'✧ Make two V signs to reveal forever',not2:'✧ Bring both hands together to close the dream',hold1:'✋ Show STOP to blur the world',hold2:'✋ Show STOP again to bring it back'};
+function cueHint(){const el=document.getElementById('gestureHint');el.textContent=cueHints[scene]||'';el.style.opacity=scene==='prelude'?'0.78':'0.85';}
+
+// V7.0: frosted breath-on-window intro (14–16.5s). Finger trails wipe the condensation.
+const fogCanvas=document.getElementById('fogGlass'),fogCtx=fogCanvas.getContext('2d');
+let fogStrokes=[],fogStart=0,fogActive=false;
+function fogResize(){const scale=.55;fogCanvas.width=Math.ceil(innerWidth*scale);fogCanvas.height=Math.ceil(innerHeight*scale)}
+addEventListener('resize',fogResize);fogResize();
+function beginFog(){fogStrokes=[];fogStart=performance.now();fogActive=true;document.body.classList.add('fog-opening')}
+function endFog(){fogActive=false;document.body.classList.remove('fog-opening')}
+function wipeFog(x,y){if(!fogActive)return;fogStrokes.push({x:x/innerWidth,y:y/innerHeight,r:.055,t:performance.now()});if(fogStrokes.length>120)fogStrokes.shift()}
+function paintFog(){
+ if(!fogActive)return;
+ const w=fogCanvas.width,h=fogCanvas.height,t=(performance.now()-fogStart)/1000;
+ fogCtx.clearRect(0,0,w,h);
+ const base=fogCtx.createLinearGradient(0,0,w,h);base.addColorStop(0,'rgba(238,245,249,.75)');base.addColorStop(.5,'rgba(249,237,242,.64)');base.addColorStop(1,'rgba(211,223,238,.76)');
+ fogCtx.fillStyle=base;fogCtx.fillRect(0,0,w,h);
+ fogCtx.globalCompositeOperation='destination-out';
+ for(const p of fogStrokes){const x=p.x*w,y=p.y*h,r=p.r*w;const g=fogCtx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(0,0,0,.99)');g.addColorStop(.55,'rgba(0,0,0,.88)');g.addColorStop(1,'rgba(0,0,0,0)');fogCtx.fillStyle=g;fogCtx.beginPath();fogCtx.arc(x,y,r,0,Math.PI*2);fogCtx.fill()}
+ fogCtx.globalCompositeOperation='source-over';
+ // A few tiny beads of condensation, drawn on top of the frost.
+ for(let i=0;i<95;i++){const x=((i*73.31)%100)/100*w,y=((i*47.17)%100)/100*h,r=(i%4===0?1.3:.5);fogCtx.fillStyle='rgba(255,255,255,.19)';fogCtx.beginPath();fogCtx.arc(x,y,r,0,Math.PI*2);fogCtx.fill()}
+}
+
+function showSceneEffect(kind,x=innerWidth*.5,y=innerHeight*.45){
+ const now=performance.now();if(now<gestureCooldown)return;gestureCooldown=now+850;
+ if(kind==='not'){const h=heart||{x,y,r:Math.min(105,innerWidth*.23)};brokenHeart={x:h.x,y:h.y,r:h.r,start:now};heart=null;sceneEffect=null;}
+ if(kind==='spinning'){disturbWater(x,y,1);sceneEffect=null;}if(kind==='forever'){releaseButterflies(x,y);sceneEffect={kind,x,y,start:now};}
+ if(kind==='hold1'){sceneEffect={kind,x,y,start:now};} if(kind==='hold2'){sceneEffect={kind,x,y,start:now};addRipple(x,y,35,'pearl',.5);}
+ if(kind==='petals')spawn(x,y,1);
+ if(kind==='love'){heart={x,y,r:75,energy:1,age:0};addRipple(x,y,24,'pink',.7);}
+}
+function palmOpen(h){let wrist=h[0];return [8,12,16,20].filter(i=>Math.hypot(h[i].x-wrist.x,h[i].y-wrist.y)>Math.hypot(h[i-2].x-wrist.x,h[i-2].y-wrist.y)*1.17).length>=3;}
+// A single hand curls into a half-heart near the face cheek. Require repeated frames to avoid accidental touch.
+function cheekHalfHeart(h){
+ // A curved thumb/index near the upper half of the face. Avoid requiring facial landmarks,
+ // which may be temporarily unavailable on iPhone when hands cover the cheek.
+ const a=h[4],b=h[8],kn=h[5],w=h[0];
+ const pt={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
+ const palm=Math.max(.035,Math.hypot(kn.x-w.x,kn.y-w.y));
+ const gap=Math.hypot(a.x-b.x,a.y-b.y)/palm;
+ const raised=Math.hypot(b.x-w.x,b.y-w.y)/palm;
+ const open=palmOpen(h);
+ // A thumb-index C / half-heart; reject a flat open palm and a fully pinched finger.
+ if(gap<.20||gap>3.3||raised<.55||open)return null;
+ let near=pt.y>.14&&pt.y<.75&&pt.x>.06&&pt.x<.94;
+ if(facePoints&&facePoints[234]&&facePoints[454]){
+   const cheekNear=[facePoints[234],facePoints[454]].some(c=>Math.hypot(pt.x-c.x,pt.y-c.y)<.38);
+   near=near&&(cheekNear||pt.y<.66);
+ }
+ if(!near)return null;
+ return {x:(1-pt.x)*innerWidth,y:pt.y*innerHeight};
+}
+function handHeart(hands){
+ if(hands.length<2)return false;
+ const a=hands[0],b=hands[1];
+ const dist=(i,j)=>Math.hypot(a[i].x-b[j].x,a[i].y-b[j].y);
+ const palms=dist(9,9);
+ const tips=Math.min(dist(8,8),dist(8,4),dist(4,8),dist(4,4));
+ // Accept two-hand heart even when one hand briefly occludes the other.
+ return palms<.67&&tips<.42;
+}
+function findHeartGesture(hands){
+ if(hands.length>=2&&handHeart(hands)){
+   const a=hands[0][9],b=hands[1][9];
+   return {x:(1-(a.x+b.x)/2)*innerWidth,y:(a.y+b.y)/2*innerHeight,kind:'two-hand heart'};
+ }
+ const half=hands.map(cheekHalfHeart).find(Boolean);
+ if(half)return {...half,kind:'cheek heart'};
+ return null;
+}
+// Pearl-glass butterfly animation: tiny wing strokes, no emoji or infinity sign.
+function releaseButterflies(x,y){
+ // A small flock emerges from the handwritten promise, at different depths.
+ butterflies=[]; foreverInkStart=performance.now();promiseCenter={x,y};
+ for(let i=0;i<7;i++){
+   const angle=-Math.PI*.88+(i/6)*Math.PI*.76;
+   const speed=.34+Math.random()*.55;
+   butterflies.push({x:x+(Math.random()-.5)*42,y:y+(Math.random()-.5)*22,
+     vx:Math.cos(angle)*speed+(Math.random()-.5)*.2,
+     vy:-.45-Math.random()*.68,age:-(i*10+Math.random()*7),life:140+Math.random()*72,
+     size:7+Math.random()*8,phase:Math.random()*6.28,drift:Math.random()*6.28,
+     depth:.65+Math.random()*.65});
+ }
+}
+function drawForeverInk(){
+ if(!foreverInkStart)return;
+ const t=(performance.now()-foreverInkStart)/1000;
+ if(t>3.2){foreverInkStart=0;return;}
+ const w=innerWidth,h=innerHeight;
+ const x=promiseCenter.x,y=promiseCenter.y;
+ ctx.save();ctx.globalCompositeOperation='screen';
+ // Delicate handwritten promise; it appears, then disperses into stardust.
+ const fadeIn=Math.min(1,t/.55),fadeOut=Math.min(1,Math.max(0,(2.65-t)/1.05));
+ ctx.globalAlpha=.6*fadeIn*fadeOut;
+ ctx.translate(x,y);ctx.rotate(-.065);
+ ctx.textAlign='center';ctx.textBaseline='middle';
+ ctx.font=`italic ${Math.min(55,w*.12)}px 'Bradley Hand','Segoe Print','Comic Sans MS',cursive`;
+ ctx.shadowColor='#e4d4ff';ctx.shadowBlur=5;ctx.fillStyle='#fff4f5';
+ ctx.fillText('forever',0,0);
+ ctx.restore();
+ if(t>.65){
+  ctx.save();ctx.globalCompositeOperation='screen';
+  for(let i=0;i<44;i++){
+   const seed=i*2.399963229728653;
+   const onset=.65+(i%9)*.095;
+   const q=Math.min(1,Math.max(0,(t-onset)/1.45));if(q<=0)continue;
+   const bx=x+Math.cos(seed)*(15+(i%9)*6),by=y+Math.sin(seed)*(4+(i%5)*4);
+   const drift=15+q*(20+(i%6)*9);
+   const px=bx+Math.cos(seed)*drift*q,py=by-Math.abs(Math.sin(seed))*drift*q-8*q;
+   ctx.globalAlpha=(1-q)*.65;
+   ctx.fillStyle=i%3===0?'#fff5e9':i%3===1?'#dfe8ff':'#f9d5ee';
+   ctx.beginPath();ctx.arc(px,py,.45+(i%4)*.32,0,Math.PI*2);ctx.fill();
+  }
+  ctx.restore();
+ }
+}
+
+function drawButterflies(){
+ const time=performance.now()*.001;
+ for(let i=butterflies.length-1;i>=0;i--){const b=butterflies[i];b.age++;
+  if(b.age<0)continue;
+  if(b.age>b.life){butterflies.splice(i,1);continue;}
+  b.x+=b.vx+Math.sin(time*1.3+b.drift)*.28;
+  b.y+=b.vy+Math.sin(time*1.8+b.phase)*.24;
+  const fade=Math.max(0,Math.min(1,b.age/26,(b.life-b.age)/65));
+  const flap=.17+.83*Math.abs(Math.sin(time*7.2+b.phase));
+  ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.sin(time*.9+b.drift)*.22);
+  ctx.globalAlpha=fade*.66;ctx.globalCompositeOperation='screen';
+  ctx.shadowColor='#dbe8ff';ctx.shadowBlur=12;
+  for(const side of [-1,1]){ctx.save();ctx.scale(side*flap,1);
+   const r=b.size;
+   const wing=ctx.createLinearGradient(0,-r*1.15,r*1.2,r*.8);
+   wing.addColorStop(0,'rgba(255,255,255,.88)');wing.addColorStop(.38,'rgba(205,232,255,.60)');
+   wing.addColorStop(.76,'rgba(190,189,237,.27)');wing.addColorStop(1,'rgba(255,235,249,.05)');
+   ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(r*.08,-r*.95,r*.94,-r*1.62,r*1.19,-r*.74);
+   ctx.bezierCurveTo(r*1.30,-r*.25,r*.43,r*.12,0,0);ctx.fillStyle=wing;ctx.fill();
+   ctx.strokeStyle='rgba(246,251,255,.65)';ctx.lineWidth=.55;ctx.stroke();
+   ctx.beginPath();ctx.moveTo(0,r*.06);ctx.bezierCurveTo(r*.84,-r*.08,r*1.17,r*.87,r*.48,r*.97);
+   ctx.bezierCurveTo(r*.13,r*.94,r*.02,r*.41,0,r*.06);ctx.fillStyle=wing;ctx.fill();ctx.stroke();
+   // Transparent wing veins and pearly dots create a lace-like depth.
+   ctx.lineWidth=.35;ctx.strokeStyle='rgba(255,255,255,.52)';
+   for(let j=0;j<3;j++){ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(r*.44,-r*(.25+j*.19),r*(.78+j*.12),-r*(.40+j*.14));ctx.stroke();}
+   for(let j=0;j<3;j++){ctx.beginPath();ctx.arc(r*(.43+j*.18),-r*(.46+j*.12),r*.035,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.65)';ctx.fill();}
+   ctx.restore();}
+  ctx.beginPath();ctx.moveTo(0,-b.size*.28);ctx.lineTo(0,b.size*.48);ctx.strokeStyle='rgba(248,251,255,.87)';ctx.lineWidth=.75;ctx.stroke();
+  ctx.restore();
+  if(b.age%4===0&&sparks.length<130)sparks.push({x:b.x,y:b.y,vx:(Math.random()-.5)*.35,vy:-.15,life:35,size:.35+Math.random()*.45});
+ }
+}
+function shatterHeart(x,y,r){
+ addRipple(x,y,r*.6,'pink',.8);
+ // Fine, drifting fragments rather than an explosive burst.
+ for(let i=0;i<74;i++){
+ let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t);
+ heartParticles.push({x:x+hx*r,y:y+hy*r,
+ vx:(Math.random()-.5)*1.5+hx*.5,vy:-.2-Math.random()*1.3,
+ life:75+Math.random()*55,max:130,size:.5+Math.random()*.9});
+ }
+}
+
+// A+C: a shy pearlescent heart approaches a fingertip, retreats, and leaves a reflected afterimage.
+// Timeline is deliberately 2 seconds (Or not: 21–23s). The afterimage becomes the first water ripple.
+let almostBridge=null;
+function easeAlmost(v){v=Math.max(0,Math.min(1,v));return v*v*(3-2*v)}
+// V7.0: soap-film heart loosens into translucent microbubbles, with one final droplet bridging to liquid water.
+function drawBrokenHeart(){
+ if(!brokenHeart)return;
+ const b=brokenHeart,t=Math.min(2,(performance.now()-b.start)/1000),r=b.r;
+ const burst=easeAlmost((t-.24)/.55),fade=easeAlmost((t-1.24)/.76);
+ const x=b.x+8*Math.sin(t*2.5),y=b.y-7*t;
+ almostBridge={x,y,r,alpha:1-fade,at:performance.now()};
+ ctx.save();ctx.globalCompositeOperation='screen';
+ // Delicate soap-film outline shrinks away as the bubbles detach.
+ if(burst<.99){ctx.save();ctx.translate(x,y);ctx.scale(1+burst*.045,1+burst*.045);
+ const g=ctx.createLinearGradient(-r,-r,r,r);g.addColorStop(0,'#aee8ff');g.addColorStop(.32,'#fff6fb');g.addColorStop(.67,'#e4bdf7');g.addColorStop(1,'#d5ffff');
+ ctx.globalAlpha=(1-burst)*.87;ctx.shadowColor='#e6dcff';ctx.shadowBlur=12;ctx.strokeStyle=g;ctx.lineWidth=2.2;
+ ctx.beginPath();for(let i=0;i<=140;i++){const [hx,hy]=heartPoint(i/140*Math.PI*2);if(i===0)ctx.moveTo(hx*r,hy*r);else ctx.lineTo(hx*r,hy*r)}ctx.closePath();ctx.fillStyle='rgba(255,222,245,.055)';ctx.fill();ctx.stroke();ctx.restore();}
+ // The heart does not explode: its film separates into dozens of airy, slow-floating bubbles.
+ for(let i=0;i<78;i++){
+  const seed=i*2.3999632297, [hx,hy]=heartPoint(seed),delay=(i%13)/13*.55;
+  const u=Math.max(0,Math.min(1,(t-.22-delay)/1.36));if(u<=0)continue;
+  const drift=u*u*(13+((i*37)%29)),side=Math.cos(seed*2.3)*drift,up=(11+(i%9)*2.2)*u;
+  const bx=x+hx*r*(1-.06*u)+side,by=y+hy*r*(1-.06*u)-up;
+  const size=1.5+(i%6)*.72+u*1.2,alpha=(1-easeAlmost((t-1.25)/.75))*(.22+.46*Math.sin(Math.PI*Math.min(1,u)));
+  ctx.globalAlpha=Math.max(0,alpha);ctx.beginPath();ctx.arc(bx,by,size,0,Math.PI*2);
+  ctx.strokeStyle=i%3===0?'#b9edff':i%3===1?'#ffe2f5':'#e5d4ff';ctx.lineWidth=.85;ctx.stroke();
+  ctx.beginPath();ctx.arc(bx-size*.25,by-size*.25,Math.max(.5,size*.19),0,Math.PI*2);ctx.fillStyle='white';ctx.fill();
+ }
+ // A last droplet hangs in place until Head is spinning begins.
+ const last=easeAlmost((t-1.2)/.8);ctx.globalAlpha=.6*(1-last*.55);ctx.beginPath();ctx.arc(x,y+r*.48,2.6+last,0,Math.PI*2);ctx.fillStyle='#e4f6ff';ctx.fill();
+ ctx.restore();
+}
+function drawExtra(){if(!sceneEffect)return;let e=sceneEffect,t=(performance.now()-e.start)/1000;if(t>2.4){sceneEffect=null;return}let fade=Math.max(0,1-t/2.4);ctx.save();ctx.translate(e.x,e.y);ctx.globalCompositeOperation='screen';ctx.globalAlpha=fade;ctx.strokeStyle='rgba(231,213,255,.72)';ctx.lineWidth=1.6;ctx.shadowColor='#e8d6ff';ctx.shadowBlur=8;
+
+
+
+if(e.kind==='hold2'){ctx.beginPath();ctx.arc(0,0,55+t*24,0,Math.PI*2);ctx.stroke()}
+ctx.restore()}
+
+function log(s){let t=new Date().toLocaleTimeString('zh-CN',{hour12:false});logEl.textContent+=`${t} ${s}\n`;logEl.scrollTop=logEl.scrollHeight;statusEl.textContent=s.slice(0,36);}
+window.addEventListener('error',e=>log('JS错误: '+e.message));window.addEventListener('unhandledrejection',e=>log('Promise错误: '+String(e.reason)));
+function resize(){let d=devicePixelRatio||1;canvas.width=innerWidth*d;canvas.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)}addEventListener('resize',resize);resize();
+async function startCamera(){try{log('正在请求前置摄像头…');if(!navigator.mediaDevices?.getUserMedia)throw Error('getUserMedia不可用，请用Safari HTTPS网址');if(stream)stream.getTracks().forEach(t=>t.stop());stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});video.srcObject=stream;await video.play();log('摄像头成功 '+video.videoWidth+'×'+video.videoHeight);promptEl.textContent='';}catch(e){log('摄像头失败 '+e.name+': '+e.message);logEl.classList.add('show')}}
+document.getElementById('start').onclick=startCamera;
+function loadScript(url){return new Promise((resolve,reject)=>{let s=document.createElement('script');s.src=url;s.onload=resolve;s.onerror=()=>reject(Error('脚本加载失败：'+url));document.head.appendChild(s)})}
+async function startHands(){if(!stream){log('请先开启摄像头');return}if(tracking){log('手势识别已经启动');return}try{log('正在下载手势识别模型（需要网络）…');if(!window.Hands)await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js');detector=new Hands({locateFile:file=>'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/'+file});detector.setOptions({maxNumHands:2,modelComplexity:0,minDetectionConfidence:.43,minTrackingConfidence:.42});detector.onResults(onHands);tracking=true;updateMonitor(0,'model started · awaiting frames');log('手势识别已启动；请挥动手掌');detectLoop();}catch(e){tracking=false;log('手势初始化失败 '+e.message);logEl.classList.add('show')}}
+document.getElementById('hands').onclick=startHands;
+async function detectLoop(){if(!tracking)return;if(video.readyState>=2&&!busy){busy=true;try{await detector.send({image:video})}catch(e){log('识别运行错误: '+e.message);tracking=false;logEl.classList.add('show')}finally{busy=false}}if(tracking)setTimeout(detectLoop,42)}
+function onHands(results){
+ const hands=results.multiHandLandmarks||[],now=performance.now();gestureFrames++;
+ if(hands.length===2){lastTwoHands=hands;lastTwoHandsAt=now;}updateMonitor(hands.length,hands.length?'tracking hands':'show your hands');
+ if(!hands.length){previous=null;prevFinger=null;spinTrail=[];if(now-spinLast>550)spinCenters=[];if(scene==='love'&&heart)updateMonitor(0,'♡ heart held · hands temporarily lost');return;}
+ if(fogActive&&scene==='prelude'){const tip=hands[0][8];const pt={x:(1-tip.x)*innerWidth,y:tip.y*innerHeight,t:now};const prev=handHistory[handHistory.length-1];if(prev&&Math.hypot(pt.x-prev.x,pt.y-prev.y)<90&&now-prev.t<280){const steps=Math.max(1,Math.ceil(Math.hypot(pt.x-prev.x,pt.y-prev.y)/7));for(let k=0;k<=steps;k++)wipeFog(prev.x+(pt.x-prev.x)*k/steps,prev.y+(pt.y-prev.y)*k/steps)}handHistory=[pt];updateMonitor(hands.length,'✍️ finger writing on glass');return;}
+ const h=hands[0],p=h[9],x=(1-p.x)*innerWidth,y=p.y*innerHeight;
+ // Recognize hearts before the Love me cue, so users need not pose in a tiny time window.
+ if(scene==='petals'||scene==='love'){
+   const detected=findHeartGesture(hands);
+   if(detected){heartCandidateFrames++;heartArmed=detected;heartArmedAt=now;}else heartCandidateFrames=Math.max(0,heartCandidateFrames-1);
+   if(scene==='love'){
+     const candidate=detected||(heartArmed&&now-heartArmedAt<2600?heartArmed:null);
+     if(candidate){
+       lastHeartSeen=now;heartStableUntil=now+2600;
+       if(!heart)heart={x:candidate.x,y:candidate.y,r:Math.min(95,innerWidth*.22),energy:1,age:0};
+       heart.x+=(candidate.x-heart.x)*.25;heart.y+=(candidate.y-heart.y)*.25;
+       heartLastDrawn=now;
+       updateMonitor(hands.length,'♡ HEART: '+candidate.kind);
+     }else{
+       updateMonitor(hands.length,'♡ waiting · curve thumb + index beside cheek');
+     }
+     return;
+   }
+ }
+ if(scene==='petals'){
+   const nx=1-p.x,ny=p.y;
+   if(previous){const dt=now-previous.t;const speed=Math.hypot(nx-previous.x,ny-previous.y)/Math.max(.01,dt/1000);
+     if(dt<350&&speed>.38&&now-lastThrow>450){updateMonitor(hands.length,'🌼 WAVE');spawn(nx*innerWidth,ny*innerHeight,Math.sign(nx-previous.x)||1);lastThrow=now;}}
+   previous={x:nx,y:ny,t:now};return;
+ }
+ if(scene==='not'){if(!brokenHeart&&lastHeartSeen&&now-lastHeartSeen<6500){brokenHeart={x:innerWidth*.5,y:innerHeight*.45,r:70,start:now};updateMonitor(hands.length,'♡ bubble dissolving');}return;}
+ if(scene==='spinning'){
+   // Follow the circular motion of one or two hands; two hands strengthen the ripple.
+   const cx=hands.reduce((v,q)=>v+(1-q[9].x)*innerWidth,0)/hands.length;
+   const cy=hands.reduce((v,q)=>v+q[9].y*innerHeight,0)/hands.length;
+   spinCenters.push({x:cx,y:cy,t:now});spinCenters=spinCenters.filter(q=>now-q.t<1450);
+   if(spinCenters.length>=4){const first=spinCenters[0],last=spinCenters[spinCenters.length-1];let length=0,turn=0,prevAngle=null;const mx=spinCenters.reduce((v,q)=>v+q.x,0)/spinCenters.length,my=spinCenters.reduce((v,q)=>v+q.y,0)/spinCenters.length;
+     for(let i=1;i<spinCenters.length;i++){const a=spinCenters[i-1],b=spinCenters[i];length+=Math.hypot(a.x-b.x,a.y-b.y);const ang=Math.atan2(b.y-my,b.x-mx);if(prevAngle!==null){let d=ang-prevAngle;while(d>Math.PI)d-=2*Math.PI;while(d< -Math.PI)d+=2*Math.PI;turn+=d;}prevAngle=ang;}
+     if(length>innerWidth*.15&&Math.abs(turn)>.72&&now-spinLast>230){disturbWater(cx,cy,Math.min(1.4,.7+Math.abs(turn)*.15));spinLast=now;updateMonitor(hands.length,'≈ CIRCLE → water');spinCenters=[];}
+   }return;
+ }
+ if(scene==='forever'){
+   const activePair=hands.length===2?hands:(lastTwoHands&&now-lastTwoHandsAt<420?lastTwoHands:null);
+   if(!activePair)return;
+   const vPose=q=>{const d=(a,b)=>Math.hypot(q[a].x-q[b].x,q[a].y-q[b].y);return d(8,0)>d(6,0)*1.02&&d(12,0)>d(10,0)*1.02&&d(8,12)>.025;};
+   if(activePair.filter(vPose).length>=1){updateMonitor(hands.length,'✌️ V → forever');
+     const a=activePair[0][8],b=activePair[1][8];const px=(1-(a.x+b.x)*.5)*innerWidth,py=(a.y+b.y)*.5*innerHeight;
+     promiseCenter.x+=(px-promiseCenter.x)*.2;promiseCenter.y+=(py-promiseCenter.y)*.2;
+     if(!promiseGestureSeen){promiseGestureSeen=true;releaseButterflies(promiseCenter.x,promiseCenter.y);foreverInkStart=now;log('双 V 手势触发 forever');}
+   }
+   return;
+ }
+ if(scene==='not2'){
+   const activePair=hands.length===2?hands:(lastTwoHands&&now-lastTwoHandsAt<360?lastTwoHands:null);
+   if(!activePair)return;
+   const a=activePair[0][9],b=activePair[1][9],distance=Math.hypot(a.x-b.x,a.y-b.y);
+   if(distance>.16)closeGestureArmed=true;
+   if(closeGestureArmed){
+     // Follow actual hand separation continuously, rather than a timed automatic zoom.
+     not2Zoom=Math.max(0,Math.min(1,(.29-distance)/.20));
+     if(distance<.16&&!closeStart){closeStart=now;log('双手合拢，画面收紧');}
+   }
+   not2LastDistance=distance;return;
+ }
+ if(scene==='hold1'||scene==='hold2'){
+   const stop=hands.some(palmOpen);holdOpenFrames=stop?Math.min(5,holdOpenFrames+1):0;
+   if(holdOpenFrames>=2&&!holdGestureLatched){updateMonitor(hands.length,'✋ STOP');holdGestureLatched=true;holdTarget=scene==='hold1'?1:0;holdGestureAt=now;log(scene==='hold1'?'STOP：逐渐失焦':'STOP：逐渐回焦');}
+   return;
+ }
+}
+
+function addRipple(x,y,r=20,tone="pearl",power=1){ripples.push({x,y,r,age:0,max:65+Math.random()*22,power,tone});if(ripples.length>32)ripples.shift()}
+function spawn(x=innerWidth*.48,y=innerHeight*.45,dir=1){
+  addRipple(x,y,12,"pearl",.65);
+  setTimeout(()=>addRipple(x,y,23,"lavender",.38),130);
+  // 一次抛出数朵小雏菊，避免单朵大贴纸感
+  const count=5+Math.floor(Math.random()*3);
+  for(let i=0;i<count;i++){
+    const spread=(i-(count-1)/2)*11;
+    flowers.push({x:x+(Math.random()-.5)*15,y:y+(Math.random()-.5)*13,
+      vx:dir*(1.4+Math.random()*1.8)+(Math.random()-.5)*1.2,
+      vy:-1.5-Math.random()*1.6+spread*.035,
+      rot:Math.random()*Math.PI*2,vr:(Math.random()-.5)*.042,
+      life:135+Math.random()*50,size:9+Math.random()*6,age:0,
+      tint:Math.random()<.54?'cream':'blue'});
+  }
+  for(let i=0;i<14;i++){let a=Math.random()*Math.PI*2,s=.6+Math.random()*2;
+    sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:42,size:.4+Math.random()*.8})}
+  promptEl.textContent='';
+}
+document.getElementById('throw').onclick=()=>{spawn();log('手动抛花成功')};
+function setScene(v){if(v!=='not2')not2Zoom=0;endFog();let savedHeart=heart;scene=v;heart=null;prevDistance=null;previous=null;prevFinger=null;sceneEffect=null;document.getElementById('caption').textContent=lyricForScene(v);document.getElementById('caption').classList.remove('diary-enter');void document.getElementById('caption').offsetWidth;document.getElementById('caption').classList.add('diary-enter');cueHint();document.querySelector('.lyrics').classList.remove('hide');document.getElementById('loveTitle').classList.remove('on');promptEl.textContent='';if(v==='love'&&heartArmed&&performance.now()-heartArmedAt<3500){heart={x:heartArmed.x,y:heartArmed.y,r:Math.min(95,innerWidth*.22),energy:1,age:0};lastHeartSeen=performance.now();}if(v==='not'){gestureCooldown=0;waterDrops.length=0;ripples.length=0;touchWave.start=-10000;const h=savedHeart;if(h){brokenHeart={x:h.x,y:h.y,r:h.r,start:performance.now()};almostBridge={x:h.x,y:h.y,r:h.r,alpha:.8,at:performance.now()};}heart=null;}if(v==='forever'){gestureCooldown=0;promiseGestureSeen=false;promiseCenter={x:innerWidth*.5,y:innerHeight*.51};foreverInkStart=0;butterflies.length=0;}
+if(v==='not2'){not2Start=mvTime();closeStart=0;closeGestureArmed=false;not2Zoom=0;butterflies.length=0;foreverInkStart=0;document.getElementById('caption').textContent='or not?';}if(v==='hold1'){holdOpenFrames=0;holdGestureLatched=false;holdTarget=0;}else if(v==='hold2'){holdOpenFrames=0;holdGestureLatched=false;holdTarget=holdFocus;}else{document.body.classList.remove('hold-blur','hold-clear');}if(v==='spinning'){waterDrops.length=0;ripples.length=0;brokenHeart=null;almostBridge=null;spinTrail=[];spinTurn=0;}if(v==='not2'){not2LastDistance=null;}cueHint();log('Scene: '+v)}
+// DAISIES V6.0: song timestamps in seconds; edit these values to fine-tune the sync.
+const MV_START=14.0;
+const MV_CUES=[
+  {at:16.5,scene:'petals'},
+  {at:19.0,scene:'love'},
+  {at:21.0,scene:'not'},
+  {at:23.0,scene:'spinning'},
+  {at:28.0,scene:'forever'},
+  {at:29.95,scene:'not2'},
+  {at:31.0,scene:'hold1'},
+  {at:33.0,scene:'hold2'}
+];
+const mvAudio=document.getElementById('mvAudio'),mvClock=document.getElementById('mvClock');
+let mvRunning=false,mvStartedAt=0,mvLastCue=-1,mvRaf=0,mvAudioUrl=null,mvUsingAudio=false;
+// V7.3.7: Independent per-line timing; first Or not no longer cuts off Love me.
+const cueAdjust={petals:-0.2,love:-0.4,not:-0.1,spinning:-0.3,forever:-1.7,not2:-1.6,hold1:-0.4,hold2:-0.4};
+let syncDelay=0;
+for(const [name,delta] of Object.entries(cueAdjust)){
+  const slider=document.getElementById('cue-'+name);
+  if(!slider)continue;
+  slider.value=delta.toFixed(1);
+  const label=document.getElementById('cue-value-'+name);
+  label.textContent=(delta>=0?'+':'')+delta.toFixed(1)+'s';
+  slider.addEventListener('input',()=>{
+    cueAdjust[name]=Number(slider.value);
+    label.textContent=(cueAdjust[name]>=0?'+':'')+cueAdjust[name].toFixed(1)+'s';
+    if(mvRunning)mvLastCue=-2;
+  });
+}
+const fmtTime=t=>'00:'+Math.floor(t).toString().padStart(2,'0')+'.'+Math.floor((t%1)*10);
+function mvResetVisuals(){
+  scene='prelude';heart=null;brokenHeart=null;almostBridge=null;sceneEffect=null;flowers.length=0;sparks.length=0;heartParticles.length=0;
+  ripples.length=0;waterDrops.length=0;butterflies.length=0;previous=null;prevFinger=null;
+  document.body.classList.remove('hold-blur','hold-clear');document.documentElement.style.setProperty('--dream-blur','0px');document.documentElement.style.setProperty('--promise-zoom','1');closeStart=0;not2Zoom=0;holdFocus=0;holdTarget=0;holdGestureLatched=false;
+  document.getElementById('caption').textContent='';document.getElementById('gestureHint').textContent='';
+  document.getElementById('loveTitle').classList.remove('on');
+  promptEl.textContent='';handHistory=[];beginFog();document.getElementById('gestureHint').textContent='trace a little secret on the glass ✧';
+}
+function mvTime(){return mvUsingAudio?mvAudio.currentTime:MV_START+(performance.now()-mvStartedAt)/1000}
+function mvTick(){
+  if(!mvRunning)return;
+  const t=mvTime();mvClock.textContent='MV · '+fmtTime(t);
+  let idx=-1;
+  for(let i=0;i<MV_CUES.length;i++)if(t>=MV_CUES[i].at+cueAdjust[MV_CUES[i].scene])idx=i;
+  if(idx!==mvLastCue){
+    mvLastCue=idx;
+    if(idx>=0){
+      const next=MV_CUES[idx].scene;
+      setScene(next);
+    }else mvResetVisuals();
+  }
+  // Gesture-driven focus: the open palm changes the target; easing remains gradual.
+  const frameStep=Math.min(.06,1/45);
+  holdFocus+=(holdTarget-holdFocus)*(scene==='hold2'?Math.min(1,frameStep/.095):Math.min(1,frameStep/.75));
+  document.documentElement.style.setProperty('--dream-blur',(18*holdFocus).toFixed(2)+'px');
+  if(scene==='not2')not2Zoom+=(Math.max(0,Math.min(1,not2Zoom))-not2Zoom)*.1;
+  document.documentElement.style.setProperty('--promise-zoom',(1+not2Zoom*.16).toFixed(4));
+  if(t>=36){mvStop(true);return}
+  mvRaf=requestAnimationFrame(mvTick);
+}
+function mvStop(finished=false){
+  mvRunning=false;cancelAnimationFrame(mvRaf);
+  if(mvUsingAudio)mvAudio.pause();
+  mvUsingAudio=false;mvLastCue=-1;
+  mvResetVisuals();
+  mvClock.textContent=finished?'FINISHED · 00:36.0':'READY · 00:14.0';
+  document.getElementById('mvStart').textContent=finished?'↻ Replay my fairy tale':'✧ Start my fairy tale';
+}
+async function mvStart(){
+  if(mvRunning){mvStop();return}
+  mvResetVisuals();mvLastCue=-1;
+  mvStartedAt=performance.now();mvUsingAudio=false;
+  if(mvAudio.src){
+    try{
+      if(mvAudio.readyState<1)await new Promise((resolve,reject)=>{
+        mvAudio.addEventListener('loadedmetadata',resolve,{once:true});
+        mvAudio.addEventListener('error',reject,{once:true});
+      });
+      mvAudio.currentTime=MV_START;
+      await mvAudio.play();
+      mvUsingAudio=true;
+    }catch(e){
+      log('Local audio playback unavailable; using visual timer: '+e.message);
+      mvStartedAt=performance.now();
+    }
+  }
+  mvRunning=true;document.getElementById('mvStart').textContent='Ⅱ Stop MV';
+  mvTick();
+}
+document.getElementById('mvStart').onclick=async()=>{if(!stream){await document.getElementById('start').onclick();if(!stream)return;}mvStart();if(!tracking)startHands();};
+document.getElementById('mvStop').onclick=()=>mvStop();
+mvAudio.addEventListener('ended',()=>{if(mvRunning)mvStop(true)});
+document.getElementById('audioFile').addEventListener('change',e=>{
+  const f=e.target.files&&e.target.files[0];if(!f)return;
+  mvStop();if(mvAudioUrl)URL.revokeObjectURL(mvAudioUrl);
+  mvAudioUrl=URL.createObjectURL(f);mvAudio.src=mvAudioUrl;
+  mvClock.textContent='AUDIO READY · 00:14.0';
+  log('Local audio selected: '+f.name+' (not uploaded)');
+});
+document.getElementById('mode').onclick=()=>setScene(scenes[(scenes.indexOf(scene)+1)%scenes.length]);
+document.getElementById('love').onclick=()=>{setScene('love');showSceneEffect('love')};
+document.getElementById('preview').onclick=()=>{if(scene==='spinning'){for(let i=0;i<4;i++)setTimeout(()=>disturbWater(innerWidth*(.3+i*.12),innerHeight*(.43+Math.sin(i)*.07),1),i*170)}else showSceneEffect(scene)};
+document.getElementById('clean').onclick=()=>{document.body.classList.toggle('cinematic');promptEl.textContent='';document.getElementById('clean').textContent=document.body.classList.contains('cinematic')?'Exit film mode':'Film mode';};document.querySelector('.top').addEventListener('click',()=>{document.querySelector('.controls').style.display='flex'});
+function heartPoint(t){let x=16*Math.pow(Math.sin(t),3),y=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));return [x/18,y/18]}
+function burstHeart(x,y,r){addRipple(x,y,r*.65,"pink",1.7);setTimeout(()=>addRipple(x,y,r*.9,"pearl",.8),150);for(let i=0;i<95;i++){let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t),angle=Math.atan2(hy,hx),speed=1.5+Math.random()*4;heartParticles.push({x:x+hx*r,y:y+hy*r,vx:Math.cos(angle)*speed+(Math.random()-.5)*2,vy:Math.sin(angle)*speed+(Math.random()-.5)*2,life:75+Math.random()*45,max:120,size:.65+Math.random()*1.5})}heart=null}
+function drawHeart(h){let t=performance.now()*.001;h.age=(h.age||0)+1;ctx.save();ctx.translate(h.x,h.y);ctx.globalAlpha=Math.min(.94,h.age/32);ctx.globalCompositeOperation='screen';for(let layer=2;layer>=0;layer--){let r=h.r*(.95+layer*.018)*(.85+.15*Math.min(1,h.age/35));ctx.beginPath();for(let i=0;i<=140;i++){let a=i/140*Math.PI*2,[x,y]=heartPoint(a);if(!i)ctx.moveTo(x*r,y*r);else ctx.lineTo(x*r,y*r)}ctx.closePath();ctx.strokeStyle=['rgba(255,250,255,.8)','rgba(255,215,234,.33)','rgba(217,204,255,.12)'][layer];ctx.lineWidth=[1.4,3.1,6.2][layer];ctx.shadowBlur=[5,11,16][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}for(let i=0;i<42;i++){let a=i/42*Math.PI*2,[x,y]=heartPoint(a);ctx.beginPath();ctx.fillStyle=i%3===0?'rgba(255,255,255,.8)':'rgba(255,218,238,.65)';ctx.shadowBlur=5;ctx.arc(x*h.r,y*h.r,0.6+(i%3)*.25,0,Math.PI*2);ctx.fill()}ctx.restore()}
+document.getElementById('debug').onclick=()=>logEl.classList.toggle('show');document.getElementById('advanced').onclick=()=>{for(const id of ['mode','throw','love','preview','mvStop']){const b=document.getElementById(id);b.style.display=b.style.display==='none'?'inline-flex':'none'}};
+function daisy(x,y,size,rot,alpha,tint='cream'){
+ // Rounded, filled botanical flowers, with stems and leaves; no white outline strokes.
+ ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.globalAlpha=alpha;
+ const blue=tint==='blue';const petal=blue?'#9fbfe5':'#fff8e8';const petal2=blue?'#b7d5ef':'#f7e8cf';
+ ctx.strokeStyle='#6f956e';ctx.lineWidth=Math.max(.9,size*.075);ctx.lineCap='round';
+ ctx.beginPath();ctx.moveTo(0,size*.05);ctx.quadraticCurveTo(size*.26,size*.85,size*.06,size*1.9);ctx.stroke();
+ for(let j=0;j<2;j++){ctx.save();ctx.translate(j?size*.13:-size*.08,size*(.75+j*.38));ctx.rotate(j?-.5:2.6);ctx.beginPath();ctx.ellipse(0,0,size*.12,size*.32,.35,0,Math.PI*2);ctx.fillStyle=j?'#8caf82':'#729b77';ctx.fill();ctx.restore();}
+ const petals=blue?5:11;
+ for(let i=0;i<petals;i++){ctx.save();ctx.rotate(i*Math.PI*2/petals);ctx.beginPath();ctx.ellipse(0,-size*(blue?.39:.39),size*(blue?.24:.145),size*(blue?.35:.33),0,0,Math.PI*2);ctx.fillStyle=i%3===0?petal2:petal;ctx.fill();ctx.restore();}
+ ctx.beginPath();ctx.arc(0,0,size*(blue?.14:.21),0,Math.PI*2);ctx.fillStyle=blue?'#d9e8b5':'#efb63e';ctx.fill();
+ if(!blue){for(let i=0;i<7;i++){let a=i*6.283/7;ctx.beginPath();ctx.arc(Math.cos(a)*size*.12,Math.sin(a)*size*.12,size*.025,0,Math.PI*2);ctx.fillStyle='#cf8c2f';ctx.fill();}}
+ ctx.restore();
+}
+let touchWave={x:.5,y:.5,start:-10000,power:0};
+function disturbWater(x,y,power=1){
+ touchWave={x:x/innerWidth,y:1-y/innerHeight,start:performance.now(),power};
+ addWaterDrop(x,y,power);
+}
+// On iPhone: touching or dragging the camera surface makes the water respond.
+let lastTouchWave=0;
+function touchWater(e){
+ if(e.target.closest('button, .controls, .beauty-panel, #guide, .panel, input, label'))return;
+ if(fogActive){wipeFog(e.clientX,e.clientY);return;}
+ if(scene!=='spinning')return;
+ const now=performance.now();if(now-lastTouchWave<75)return;
+ lastTouchWave=now;disturbWater(e.clientX,e.clientY,.85);
+}
+document.addEventListener('pointerdown',touchWater,{passive:true});
+document.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType==='touch')touchWater(e)},{passive:true});
+// Glass writing also works with a finger directly on the iPhone screen.
+document.addEventListener('touchmove',e=>{if(fogActive&&e.touches.length){const t=e.touches[0];wipeFog(t.clientX,t.clientY)}},{passive:true});
+let waterDrops=[],lastWaterDrop=0;
+function addWaterDrop(x,y,power=1){waterDrops.push({x,y,born:performance.now(),power,seed:Math.random()*6.28});if(waterDrops.length>22)waterDrops.shift();}
+// V7.0: water appearance is produced by camera-texture refraction in the fragment shader.
+// Only faint caustic glints remain in 2D; no visible concentric neon rings.
+function drawMoonwater(){
+ if(scene!=='spinning')return;
+ const now=performance.now();
+ for(let i=waterDrops.length-1;i>=0;i--){const p=waterDrops[i],t=(now-p.born)/1000;
+ if(t>3.2){waterDrops.splice(i,1);continue}
+ const fade=Math.pow(1-t/3.2,1.55)*p.power;
+ ctx.save();ctx.translate(p.x,p.y);ctx.globalCompositeOperation='screen';
+ // Soft underwater refraction bloom: layered radial gradients, not a rotating neon ring.
+ const glow=ctx.createRadialGradient(0,0,2,0,0,105+t*55);
+ glow.addColorStop(0,`rgba(240,213,255,${.10*fade})`);
+ glow.addColorStop(.35,`rgba(174,207,255,${.085*fade})`);
+ glow.addColorStop(.72,`rgba(255,220,239,${.045*fade})`);
+ glow.addColorStop(1,'rgba(255,255,255,0)');
+ ctx.fillStyle=glow;ctx.beginPath();ctx.arc(0,0,105+t*55,0,Math.PI*2);ctx.fill();
+ for(let ring=0;ring<4;ring++){
+  const phase=t-ring*.21;if(phase<0)continue;
+  const radius=8+phase*80;const alpha=fade*Math.max(0,1-phase/3.1)*.68;
+  for(let edge=0;edge<3;edge++){
+   ctx.beginPath();const points=90;
+   for(let j=0;j<=points;j++){
+    const a=j/points*Math.PI*2;
+    const wobble=2.8*Math.sin(a*5+phase*3+p.seed)+1.6*Math.sin(a*9-phase*2);
+    const rr=radius+wobble+edge*2.7;
+    const px=Math.cos(a)*rr,py=Math.sin(a)*rr*.68;
+    if(j===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
+   }
+   const c=edge===0?'245,242,255':edge===1?'185,211,255':'255,216,235';
+   ctx.strokeStyle=`rgba(${c},${alpha*[.45,.17,.11][edge]})`;
+   ctx.lineWidth=[1.3,3,6][edge];ctx.shadowColor='#d6c9ff';ctx.shadowBlur=edge===0?7:13;ctx.stroke();
+  }
+  // Broken caustic highlights travel along the wave crest.
+  for(let j=0;j<5;j++){
+   const a=p.seed+j*1.31+phase*.42;
+   const r=radius+2*Math.sin(a*5+phase*3);
+   const x=Math.cos(a)*r,y=Math.sin(a)*r*.68;
+   ctx.beginPath();ctx.ellipse(x,y,2.7+phase*.6,.7,a,0,Math.PI*2);
+   ctx.fillStyle=`rgba(255,250,255,${alpha*.52})`;ctx.fill();
+  }
+ }
+ ctx.restore();
+ }
+}
+function drawRipples(){if(scene==='not'||scene==='prelude')return;for(let i=ripples.length-1;i>=0;i--){let p=ripples[i];p.age++;let k=p.age/p.max,r=p.r+(Math.min(innerWidth,innerHeight)*.36)*k;let fade=(1-k)*(1-k)*Math.min(1,p.power)*.78;ctx.save();ctx.globalCompositeOperation='screen';ctx.translate(p.x,p.y);ctx.scale(1,.62);for(let layer=0;layer<3;layer++){ctx.beginPath();ctx.arc(0,0,r+layer*5,0,Math.PI*2);ctx.lineWidth=[1.25,2.5,5][layer];let rgb=p.tone==='pink'?'255,219,237':p.tone==='lavender'?'226,214,255':'247,245,255';ctx.strokeStyle=`rgba(${rgb},${fade*[.7,.21,.065][layer]})`;ctx.shadowBlur=[5,9,13][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}ctx.restore();if(p.age>=p.max)ripples.splice(i,1)}}
+function draw(){paintFog();ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();drawMoonwater();drawExtra();drawBrokenHeart();if(scene==='love'&&heart)drawHeart(heart);drawForeverInk();drawButterflies();for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.5+.5*Math.min(1,f.age/16)),f.rot,Math.min(1,f.age/12,f.life/35),f.tint);if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V7.1 Face Sculpt ready · cues 14–36s');
+document.getElementById('restore').onclick=()=>document.body.classList.remove('cinematic');
+
+// Face-aware skin softening: a low-resolution blur sampled from the actual camera,
+// masked to the detected facial oval. Eyes and lips remain unblurred.
+const beautyPanel=document.getElementById('beautyPanel');
+document.getElementById('beautyButton').onclick=()=>{beautyPanel.classList.toggle('open');if(stream&&!faceTracker)initFaceBeauty()};
+document.getElementById('beautyClose').onclick=()=>beautyPanel.classList.remove('open');
+for(const id of ['smooth','bright'])document.getElementById(id).oninput=e=>document.getElementById(id+'Val').textContent=e.target.value;
+// True GPU warping: sample the live camera texture at locally deformed UV coordinates.
+// Face Landmarker landmarks are tracked from video frames, not fabricated slider effects.
+const sculptUI=document.createElement('div');sculptUI.innerHTML=`<label>Slim face <input id="slimFace" type="range" min="0" max="100" value="10"><span id="slimFaceVal">10</span></label><label>Smaller head <input id="smallHead" type="range" min="0" max="100" value="10"><span id="smallHeadVal">10</span></label><label>Bigger eyes <input id="bigEyes" type="range" min="0" max="100" value="13"><span id="bigEyesVal">13</span></label><p class="note">GPU face reshaping · 0–100 intensity. Actual deformation is limited to avoid severe artifacts. If tracking fails, the original camera remains visible.</p>`;
+beautyPanel.insertBefore(sculptUI,document.getElementById('beautyClose'));
+for(const id of ['slimFace','smallHead','bigEyes'])document.getElementById(id).oninput=e=>document.getElementById(id+'Val').textContent=e.target.value;
+const gl=beautyCanvas.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:false,powerPreference:'high-performance'});
+let faceTracker=null, facePoints=null, lastDetect=0, lastVideoTime=-1, gpuReady=false, gpuProgram=null, gpuTexture=null, uni={}, faceFoundLogged=false;
+function compileShader(type,source){const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
+function initGPU(){if(!gl)throw Error('WebGL not supported');
+const vs=`attribute vec2 pos;varying vec2 uv;void main(){uv=pos*.5+.5;gl_Position=vec4(pos,0.,1.);}`;
+const fs=`precision highp float;varying vec2 uv;
+uniform sampler2D tex;uniform vec2 cover;uniform vec2 eyeL,eyeR,cheekL,cheekR,faceC;
+uniform float faceW,faceH,slim,head,eyes,smooth,bright,tracked;uniform vec2 waveCenter;uniform float waveAge,wavePower;
+vec2 pull(vec2 p,vec2 c,vec2 shift,float radius){vec2 delta=p-c;float d=length(delta);float fall=pow(max(0.,1.-d/radius),2.);return p+shift*fall;}
+vec2 zoomEye(vec2 p,vec2 c,float radius,float amount){vec2 d=p-c;float r=length(d);float t=max(0.,1.-r/radius);return p-d*amount*t*t;}
+void main(){vec2 p=uv;
+ if(waveAge>=0.&&waveAge<3.2){
+   vec2 d=(p-waveCenter)*vec2(1.,1.65);
+   float r=length(d);
+   float front=waveAge*.24;
+   float ring=exp(-pow((r-front)/.047,2.));
+   float fall=exp(-waveAge*.66);
+   float displacement=sin((r-front)*125.)*ring*.014*fall*wavePower;
+   p+=normalize(d+vec2(.00001))*displacement;
+ }
+ if(tracked>.5){
+ // A localized inverse scale around the head reduces apparent head size.
+ vec2 delta=(p-faceC)/vec2(1.,1.);float rr=length(delta/vec2(max(faceW*.88,.001),max(faceH*1.20,.001)));
+ float mask=pow(max(0.,1.-rr),2.);p=faceC+delta*(1.+head*.19*mask);
+ // Inverse mapping pulls source cheek pixels outward, making the visible jaw slimmer.
+ p=p+vec2(-slim*faceW*.20,0.)*pow(max(0.,1.-length((p-cheekL)/vec2(faceW*.37,faceH*.64))),2.);
+ p=p+vec2( slim*faceW*.20,0.)*pow(max(0.,1.-length((p-cheekR)/vec2(faceW*.37,faceH*.64))),2.);
+ // Eye enlargement: inverse radial warp, separate for left and right eyes.
+ p=zoomEye(p,eyeL,faceW*.27,eyes*.31);
+ p=zoomEye(p,eyeR,faceW*.27,eyes*.31);
+ }
+ // The video is mirrored and object-fit:cover; cover maps screen to video texture.
+ vec2 q=(p-.5)*cover+.5;q.x=1.-q.x;
+ vec4 color=texture2D(tex,q);
+ if(tracked>.5&&smooth>0.){
+ float mask=max(0.,1.-length((uv-faceC)/vec2(max(faceW*.73,.01),max(faceH*.75,.01))));
+ float eyeMask=1.-max(pow(max(0.,1.-length((uv-eyeL)/vec2(faceW*.29,faceH*.16))),2.),pow(max(0.,1.-length((uv-eyeR)/vec2(faceW*.29,faceH*.16))),2.));
+ float amt=smooth*.42*mask*eyeMask;
+ vec2 px=vec2(.0018,.0018)*cover;
+ vec4 blur=(texture2D(tex,q+vec2(px.x,0.))+texture2D(tex,q-vec2(px.x,0.))+texture2D(tex,q+vec2(0.,px.y))+texture2D(tex,q-vec2(0.,px.y)))*.25;
+ color=mix(color,blur,amt);
+ }
+ color.rgb=clamp((color.rgb-.5)*.99+.5+bright*.11,0.,1.);
+ gl_FragColor=vec4(color.rgb,1.);
+}`;
+const pr=gl.createProgram();gl.attachShader(pr,compileShader(gl.VERTEX_SHADER,vs));gl.attachShader(pr,compileShader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(pr));gpuProgram=pr;
+const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);gl.useProgram(pr);const attr=gl.getAttribLocation(pr,'pos');gl.enableVertexAttribArray(attr);gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+for(const n of ['tex','cover','eyeL','eyeR','cheekL','cheekR','faceC','faceW','faceH','slim','head','eyes','smooth','bright','tracked','waveCenter','waveAge','wavePower'])uni[n]=gl.getUniformLocation(pr,n);
+gpuTexture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,gpuTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.uniform1i(uni.tex,0);gpuReady=true;}
+function faceUV(pt){const vw=video.videoWidth||1,vh=video.videoHeight||1,w=innerWidth,h=innerHeight;const k=Math.max(w/vw,h/vh),sw=vw*k,sh=vh*k;return [(w-sw)/2/w+(1-pt.x)*sw/w,1-((h-sh)/2+pt.y*sh)/h]}
+function sendPoint(name,p){gl.uniform2f(uni[name],p[0],p[1]);}
+function beautyFrame(now){requestAnimationFrame(beautyFrame);if(!gpuReady||!video.videoWidth||!stream){beautyCanvas.style.display='none';video.style.opacity='1';return;}
+ const enabled=document.getElementById('beautyOn').checked;
+ if(!enabled){beautyCanvas.style.display='none';video.style.opacity='1';return;}
+ const w=innerWidth,h=innerHeight,d=Math.min(devicePixelRatio||1,1.5),cw=Math.round(w*d),ch=Math.round(h*d);if(beautyCanvas.width!==cw||beautyCanvas.height!==ch){beautyCanvas.width=cw;beautyCanvas.height=ch;gl.viewport(0,0,cw,ch)}
+ try{gl.useProgram(gpuProgram);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,gpuTexture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,video);
+ const vw=video.videoWidth,vh=video.videoHeight,k=Math.max(w/vw,h/vh);gl.uniform2f(uni.cover,w/(vw*k),h/(vh*k));
+ const waveAge=(performance.now()-touchWave.start)/1000;
+  gl.uniform2f(uni.waveCenter,touchWave.x,touchWave.y);
+  gl.uniform1f(uni.waveAge,waveAge);
+  gl.uniform1f(uni.wavePower,touchWave.power);
+  const f=facePoints;gl.uniform1f(uni.tracked,f?1:0);
+ if(f){const p=i=>faceUV(f[i]);const left=p(33),right=p(263),cl=p(234),cr=p(454),top=p(10),chin=p(152);sendPoint('eyeL',left);sendPoint('eyeR',right);sendPoint('cheekL',cl);sendPoint('cheekR',cr);sendPoint('faceC',[(top[0]+chin[0])*.5,(top[1]+chin[1])*.5]);gl.uniform1f(uni.faceW,Math.abs(cr[0]-cl[0]));gl.uniform1f(uni.faceH,Math.abs(top[1]-chin[1]));}
+ gl.uniform1f(uni.slim,Number(document.getElementById('slimFace').value)/100);gl.uniform1f(uni.head,Number(document.getElementById('smallHead').value)/100);gl.uniform1f(uni.eyes,Number(document.getElementById('bigEyes').value)/100);gl.uniform1f(uni.smooth,Number(document.getElementById('smooth').value)/70);gl.uniform1f(uni.bright,Number(document.getElementById('bright').value)/50);
+ gl.drawArrays(gl.TRIANGLE_STRIP,0,4);beautyCanvas.style.display='block';video.style.opacity='0';
+ }catch(e){beautyCanvas.style.display='none';video.style.opacity='1';if(!window.gpuWarn){log('GPU beauty fallback: '+e.message);window.gpuWarn=true}}
+}
+requestAnimationFrame(beautyFrame);
+// V7.0: native ESM (.mjs) first; never inject an ESM module as a classic script.
+// The two files tested on iPhone are vision_bundle.mjs and vision_wasm_internal.wasm.
+let faceInitPromise=null, faceLoopActive=false, faceInitError='';
+async function loadFaceVision(){
+ const sources=[
+  {js:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs',wasm:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm'},
+  {js:'https://unpkg.com/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs',wasm:'https://unpkg.com/@mediapipe/tasks-vision@0.10.14/wasm'},
+  {js:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm',wasm:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm'}
+ ];
+ let failures=[];
+ for(const source of sources){
+  try{
+   log('加载 Face Landmarker (.mjs)：'+new URL(source.js).hostname);
+   const api=await import(/* webpackIgnore: true */ source.js);
+   if(!api?.FaceLandmarker||!api?.FilesetResolver)throw Error('模块缺少 FaceLandmarker / FilesetResolver');
+   log('人脸识别 JS 模块加载成功，准备 WASM…');
+   const fileset=await api.FilesetResolver.forVisionTasks(source.wasm);
+   log('WASM 资源配置完成');
+   return {api,fileset,source};
+  }catch(err){failures.push(source.js+': '+(err?.message||String(err)));log('模块加载失败，尝试备用地址：'+(err?.message||String(err)))}
+ }
+ throw Error('全部 ESM 地址失败：'+failures.join(' | '));
+}
+function beginFaceLoop(){
+ if(faceLoopActive)return;
+ faceLoopActive=true;
+ const detect=now=>{
+  if(!faceLoopActive)return;
+  if(!stream||!faceTracker){facePoints=null;faceLoopActive=false;return}
+  if(video.readyState>=2&&now-lastDetect>110&&video.currentTime!==lastVideoTime){
+   lastDetect=now;lastVideoTime=video.currentTime;
+   try{facePoints=faceTracker.detectForVideo(video,now).faceLandmarks?.[0]||null;if(facePoints&&!faceFoundLogged){faceFoundLogged=true;log('已检测到人脸 · WebGL 瘦脸/小头/大眼正在运行')}else if(!facePoints&&faceFoundLogged){faceFoundLogged=false;log('人脸暂时离开画面')}}
+   catch(e){facePoints=null;if(!window.faceDetectWarn){log('识别人脸时出错：'+e.message);window.faceDetectWarn=true}}
+  }
+  requestAnimationFrame(detect);
+ };
+ requestAnimationFrame(detect);
+}
+async function initFaceBeauty(){
+ if(faceTracker)return;
+ if(faceInitPromise)return faceInitPromise;
+ faceInitPromise=(async()=>{
+  try{
+   if(!gpuReady)initGPU();
+   const {api,fileset}=await loadFaceVision();
+   const model='https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
+   let lastError=null;
+   for(const delegate of ['GPU','CPU']){
+    try{
+     log('正在启动 '+delegate+' 人脸模型…');
+     faceTracker=await api.FaceLandmarker.createFromOptions(fileset,{
+      baseOptions:{modelAssetPath:model,delegate},runningMode:'VIDEO',numFaces:1,
+      minFaceDetectionConfidence:.5,minFacePresenceConfidence:.5,minTrackingConfidence:.5
+     });
+     log('人脸模型已加载（'+delegate+'），正在等待检测到人脸…');
+     faceInitError='';beginFaceLoop();return;
+    }catch(e){lastError=e;log(delegate+' 模型初始化失败：'+e.message)}
+   }
+   throw lastError||Error('模型无法启动');
+  }catch(e){facePoints=null;faceInitError=e.message;log('人脸变形暂不可用：'+e.message);logEl.classList.add('show')}
+  finally{faceInitPromise=null}
+ })();
+ return faceInitPromise;
+}
+const oldCameraClick=document.getElementById('start').onclick;
+document.getElementById('start').onclick=async()=>{await oldCameraClick();if(stream){document.getElementById('start').textContent='✓ Camera on';initFaceBeauty()}};
+// Optional first-visit instructions; no network access or permissions are requested by the guide.
+(function(){
+ const g=document.getElementById('guide');
+ const show=()=>g.classList.add('open');
+ document.getElementById('helpToggle').addEventListener('click',show);
+ document.getElementById('guideGo').addEventListener('click',()=>{g.classList.remove('open');try{localStorage.setItem('yiyang-guide-seen','1')}catch(e){}});
+ try{if(!localStorage.getItem('yiyang-guide-seen'))show()}catch(e){show()}
+})();
+</script></body></html>
