@@ -1,0 +1,480 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>yiyangcutieworld V6.4.2 · Face Sculpt</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0b19;color:white;font-family:-apple-system,BlinkMacSystemFont,sans-serif}#camera{position:absolute;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);background:#111}#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#07071690,transparent 25%,transparent 60%,#080815a8);pointer-events:none}.top{position:absolute;top:calc(env(safe-area-inset-top) + 16px);left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}.logo{font-weight:750;letter-spacing:2px;font-size:14px}.status{font-size:11px;background:#19182ebd;padding:8px 10px;border-radius:20px;max-width:62%;text-align:right}.bottom{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 20px);left:12px;right:12px;display:flex;flex-direction:column;align-items:center;gap:12px}.prompt{font-size:14px;text-shadow:0 2px 8px black;text-align:center}.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}button{border:0;background:#dfc3ff;color:#1b1030;font-weight:700;border-radius:22px;padding:12px 15px;font-size:13px}button.secondary{background:#22213ccf;color:white;border:1px solid #9994bb66}.panel{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 138px);max-height:32vh;overflow:auto;background:#0a091bdc;border:1px solid #ffffff33;border-radius:14px;padding:10px;font:11px/1.6 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;display:none}.panel.show{display:block}.lyrics{position:absolute;top:73%;left:18px;right:18px;text-align:center;font-size:clamp(21px,5vw,28px);font-weight:500;letter-spacing:.08em;text-shadow:0 2px 15px #000;pointer-events:none;z-index:3}.hint{font-size:12px;color:#c7b9e7;margin-top:6px;font-weight:400}.love-title{position:absolute;top:16%;left:0;right:0;text-align:center;pointer-events:none;font-weight:800;font-size:clamp(22px,7vw,36px);letter-spacing:1px;text-shadow:0 0 20px #ffb9e9;opacity:0;transition:opacity .4s}.love-title.on{opacity:1}.love-title small{display:block;font-size:13px;font-weight:500;margin-top:8px;color:#ffe4f3}.lyrics.hide{opacity:0}.lyrics{transition:opacity .3s}.bottom{z-index:5}.prompt:empty{display:none}.controls{max-width:560px}.bottom{bottom:calc(env(safe-area-inset-bottom) + 12px)}.controls button{font-weight:500;font-size:12px;padding:10px 12px}.lyrics{transition:opacity .3s}.shade{pointer-events:none}.mode{font-size:11px;color:#ffe7f6;text-shadow:0 2px 8px #000}
+/* V5.9 — Dreamy Bloom */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap');
+html,body{background:#18131e;font-family:'DM Sans',-apple-system,sans-serif}
+#camera{z-index:0;background:radial-gradient(ellipse at 50% 35%,#65506b 0%,#2d2338 56%,#15121d 100%)}
+#fx{z-index:2}
+.shade{z-index:1;background:linear-gradient(180deg,rgba(20,12,27,.46) 0%,rgba(32,18,38,.06) 28%,rgba(28,18,34,.02) 58%,rgba(21,14,30,.53) 100%),radial-gradient(ellipse at 50% 43%,transparent 38%,rgba(92,57,92,.17) 100%)}
+.top{z-index:6;top:calc(env(safe-area-inset-top) + 20px);left:23px;right:23px;align-items:flex-start}
+.logo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:20px;letter-spacing:.27em;color:#fff2e7;text-shadow:0 2px 15px #352034}
+.logo:after{content:'ENCHANTED GARDEN';display:block;margin-top:5px;font-family:'DM Sans',sans-serif;font-size:7px;font-weight:500;letter-spacing:.33em;color:#f4d8df}
+.status{font-size:10px;background:rgba(44,30,49,.24);border:1px solid rgba(255,242,238,.2);backdrop-filter:blur(12px);max-width:43%;line-height:1.4;color:#fff0ec;padding:7px 10px}
+.lyrics{z-index:4;top:auto;bottom:23%;left:12px;right:12px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(37px,9vw,59px);line-height:1.05;letter-spacing:.015em;color:#fff2e7;text-shadow:0 2px 18px #4e294e,0 0 38px #ffbed088}
+.love-title{z-index:4;top:19%;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(32px,9vw,54px);letter-spacing:.02em;color:#fff0e8}
+.love-title small{font-family:'DM Sans',sans-serif;font-style:normal;font-size:10px;letter-spacing:.15em}
+.bottom{z-index:8;left:14px;right:14px;bottom:calc(env(safe-area-inset-bottom) + 10px);gap:5px}
+.controls{max-width:420px;gap:7px;padding:10px 9px;background:rgba(35,25,45,.42);border:1px solid rgba(255,241,233,.21);border-radius:23px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 40px #140c2055}
+.controls button{border:1px solid #fff0e844;background:rgba(247,227,239,.14);color:#fff1ea;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:.02em;border-radius:100px;padding:9px 11px;min-height:35px}
+.controls button:first-child,.controls button:nth-child(2){background:#e9d4e5;color:#3e3046}
+.controls button.secondary{background:rgba(255,235,244,.1);color:#fff3ef;border-color:#fff4f044}
+.prompt{display:none!important}
+.panel{z-index:10;bottom:190px;background:#261e31ed}
+.garden-frame{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;opacity:.72}
+.garden-frame:before,.garden-frame:after{content:'';position:absolute;top:11%;width:110px;height:45%;border:1px solid transparent;filter:drop-shadow(0 0 9px #ffb6df33)}
+.garden-frame:before{left:-56px;border-right-color:#ffdfdf5e;border-radius:0 75% 55% 0;transform:rotate(-13deg)}
+.garden-frame:after{right:-56px;border-left-color:#fff0d466;border-radius:75% 0 0 55%;transform:rotate(13deg)}
+.vine{position:absolute;width:135px;height:270px;top:15%;opacity:.65;filter:drop-shadow(0 0 8px #fbd8e65c)}
+.vine.left{left:-55px;transform:rotate(-9deg)}.vine.right{right:-55px;transform:scaleX(-1) rotate(-9deg)}
+.garden-spark{position:absolute;font-size:12px;color:#fff1d9;animation:twinkle 4s ease-in-out infinite;opacity:.55}
+.garden-spark.a{left:13%;top:28%}.garden-spark.b{right:12%;top:43%;animation-delay:1.5s}.garden-spark.c{left:20%;top:65%;animation-delay:2.5s}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.65)}50%{opacity:.8;transform:scale(1.15)}}
+body.cinematic .top,body.cinematic .bottom,body.cinematic .panel{display:none!important}
+body.cinematic .lyrics{bottom:13%}
+#restore{display:none;position:absolute;z-index:20;top:calc(env(safe-area-inset-top) + 10px);right:10px;width:35px;height:35px;border:0;background:transparent;color:#fff8;font-size:17px}
+body.cinematic #restore{display:block}
+@media(max-height:720px){.lyrics{bottom:29%}.controls button{padding:7px 9px;min-height:30px}}
+
+/* MV sync interface */
+.mv-clock{position:absolute;top:calc(env(safe-area-inset-top) + 55px);left:16px;z-index:5;color:#fff2e9;font:10px 'DM Sans',sans-serif;letter-spacing:.15em;text-shadow:0 1px 8px #25112e;pointer-events:none}
+.audio-upload{display:inline-flex;align-items:center;padding:9px 12px;border-radius:100px;min-height:35px;border:1px solid #fff4f044;background:rgba(255,235,244,.1);color:#fff3ef;font:10px 'DM Sans',sans-serif;cursor:pointer}
+#mvStart{background:#f2d9e9;color:#422e48;font-weight:700}
+body.cinematic .mv-clock{opacity:0}
+/* Cinematic focus pull: blur video and visual effects, not the caption. */
+#camera,#fx,.garden-frame,.shade{transition:filter 1.65s cubic-bezier(.2,.65,.2,1),opacity 1.65s ease;}
+body.hold-blur #camera,body.hold-blur #fx,body.hold-blur .garden-frame,body.hold-blur .shade{filter:blur(16px) brightness(.9);}
+body.hold-clear #camera,body.hold-clear #fx,body.hold-clear .garden-frame,body.hold-clear .shade{filter:blur(0px);}
+body.hold-blur .lyrics{letter-spacing:.16em;opacity:.9;}
+
+/* V6.4 GPU face reshape · Face Landmarker */
+#beautyCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;transform:none}
+#camera{filter:brightness(1.055) saturate(.96) contrast(.99)}
+body.hold-blur #beautyCanvas{filter:blur(16px) brightness(.9)}
+body.hold-clear #beautyCanvas{filter:blur(0)}
+.beauty-panel{display:none;position:absolute;z-index:15;bottom:calc(env(safe-area-inset-bottom) + 155px);left:16px;right:16px;max-width:420px;margin:auto;padding:15px;border:1px solid #ffffff4d;border-radius:20px;background:#271c33ed;backdrop-filter:blur(15px);font:12px 'DM Sans',sans-serif;color:#fff5f3}
+.beauty-panel.open{display:block}.beauty-panel label{display:flex;align-items:center;gap:10px;margin:10px 0}.beauty-panel input[type=range]{flex:1;min-width:50px;accent-color:#e9bedb}.beauty-panel span{min-width:28px;text-align:right}.beauty-panel .note{font-size:10px;line-height:1.5;color:#e6d4e5}
+body.cinematic .beauty-panel{display:none}
+
+/* First-time guide */
+#helpToggle{position:fixed;top:calc(env(safe-area-inset-top) + 68px);right:12px;z-index:19;border:1px solid #e9cfe6;background:rgba(38,25,49,.76);color:#fff;border-radius:99px;padding:8px 13px;font:600 12px system-ui;backdrop-filter:blur(10px)}
+#guide{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(19,12,27,.7);backdrop-filter:blur(15px);overflow:auto}
+#guide.open{display:flex}
+#guideCard{width:min(440px,100%);max-height:90dvh;overflow:auto;background:linear-gradient(145deg,#fff9fc,#f4e9f6);border:1px solid #fff;border-radius:25px;padding:25px 22px;color:#725676;box-shadow:0 20px 65px #130d1c80;font-family:system-ui,sans-serif}
+#guideCard h1{font:italic 30px Georgia,serif;overflow-wrap:anywhere;text-align:center;margin:8px 0;color:#76517e}
+#guideCard .sub{text-align:center;color:#ab88a8;font-size:12px;margin-bottom:19px}
+#guideCard .step{display:flex;gap:12px;align-items:flex-start;margin:14px 0;font-size:13px;line-height:1.55}
+#guideCard .step b{color:#735576}
+#guideCard .num{background:#e7d2e8;border-radius:50%;height:28px;min-width:28px;display:grid;place-items:center;color:#735576;font-weight:700}
+#guideCard .fine{font-size:11px;line-height:1.55;color:#a0839e;margin:15px 0}
+#guideGo{display:block;width:100%;padding:14px;border:0;border-radius:24px;background:#b58fc1;color:white;font-size:15px;font-weight:650}
+body.cinematic #helpToggle{display:none}
+</style></head><body><button id="helpToggle" type="button" aria-label="How to play">? How to play</button>
+<div id="guide" role="dialog" aria-modal="true" aria-label="How to play"><div id="guideCard">
+<div class="sub">✧ WELCOME TO YOUR FAIRY WORLD ✧</div><h1>yiyangcutieworld</h1><div class="sub">Your own enchanted music video 🌼 🦋</div>
+<div class="step"><span class="num">1</span><span><b>Camera</b> — Tap Camera and allow front-camera access. Your camera stays on your device.</span></div>
+<div class="step"><span class="num">2</span><span><b>Gestures</b> — Tap Gestures. Wave to scatter little flowers; make a heart with both hands for <i>Love me</i>; move your finger to create ripples.</span></div>
+<div class="step"><span class="num">3</span><span><b>Music (optional)</b> — Tap Local audio to select your own audio file. The MV begins at 00:14 and effects start at 00:16.5. Without audio, Start MV runs a silent timed preview.</span></div>
+<div class="step"><span class="num">4</span><span><b>Start MV</b> — Press Start MV for automatic scene changes. Use Beauty for a soft glow; Film mode hides the controls.</span></div>
+<div class="fine">For best results, use Safari on iPhone in good lighting. Camera and gesture permissions are required for interactive effects. Audio chosen from Files is read locally; don't upload copyrighted music to a public repository. To reopen this guide, tap “? How to play”.</div>
+<button id="guideGo" type="button">Enter my fairy world ✧</button></div></div>
+<video id="camera" autoplay muted playsinline></video><canvas id="beautyCanvas"></canvas><canvas id="fx"></canvas><div class="shade"></div><div class="garden-frame" aria-hidden="true"><svg class="vine left" viewBox="0 0 135 270" fill="none"><path d="M30 265 C82 204 17 159 83 103 C113 77 72 42 113 8" stroke="#ffe9dc" stroke-width="1.1" opacity=".8"/><g fill="#e9d4e5" opacity=".62"><ellipse cx="61" cy="209" rx="8" ry="18" transform="rotate(48 61 209)"/><ellipse cx="34" cy="170" rx="7" ry="17" transform="rotate(-36 34 170)"/><ellipse cx="77" cy="127" rx="7" ry="15" transform="rotate(49 77 127)"/><ellipse cx="68" cy="79" rx="7" ry="14" transform="rotate(-45 68 79)"/></g><circle cx="89" cy="94" r="3" fill="#fff0d4"/></svg><svg class="vine right" viewBox="0 0 135 270" fill="none"><path d="M30 265 C82 204 17 159 83 103 C113 77 72 42 113 8" stroke="#ffe9dc" stroke-width="1.1" opacity=".8"/><g fill="#e9d4e5" opacity=".62"><ellipse cx="61" cy="209" rx="8" ry="18" transform="rotate(48 61 209)"/><ellipse cx="34" cy="170" rx="7" ry="17" transform="rotate(-36 34 170)"/><ellipse cx="77" cy="127" rx="7" ry="15" transform="rotate(49 77 127)"/><ellipse cx="68" cy="79" rx="7" ry="14" transform="rotate(-45 68 79)"/></g><circle cx="89" cy="94" r="3" fill="#fff0d4"/></svg><span class="garden-spark a">✧</span><span class="garden-spark b">✦</span><span class="garden-spark c">✧</span></div><button id="restore" aria-label="Show controls">✧</button><div class="top"><span class="logo">✧ yiyangcutieworld <small style="font-size:9px;opacity:.7">V6.4.2</small></span><span id="status" class="status">Ready</span></div><div class="lyrics" id="caption"></div><div id="loveTitle" class="love-title"></div><div id="log" class="panel"></div><div id="mvClock" class="mv-clock">READY · 00:14.0</div><audio id="mvAudio" preload="metadata"></audio><div class="bottom"><div id="prompt" class="prompt"></div><div class="controls"><button id="mvStart">▶ Start MV</button><button id="mvStop" class="secondary">↺ Reset</button><button id="start">① Camera</button><button id="hands">② Gestures</button><button id="throw" class="secondary">✿ Flowers</button><button id="love" class="secondary">💗 Heart</button><button id="mode" class="secondary">Next scene →</button><button id="clean" class="secondary">Film mode</button><button id="preview" class="secondary">Preview</button><button id="beautyButton" class="secondary">✧ Beauty</button><button id="debug" class="secondary">Debug</button><label class="audio-upload">♫ Local audio<input id="audioFile" type="file" accept="audio/*" style="display:none"></label></div></div><div class="beauty-panel" id="beautyPanel"><strong>✧ Korean Soft Glow · MAX</strong><label><input type="checkbox" id="beautyOn" checked> Beauty on</label><label>Skin smooth <input id="smooth" type="range" min="0" max="70" value="70"><span id="smoothVal">70</span></label><label>Brighten <input id="bright" type="range" min="0" max="50" value="50"><span id="brightVal">50</span></label><p class="note">Maximum available face-aware smoothing and brightening are enabled by default. Face-aware smoothing and brightening are on. Slim face, smaller head and bigger eyes use live face tracking when the model loads. Face tracking may take a moment to load.</p><button id="beautyClose" class="secondary">Close</button></div><script>
+const video=document.getElementById('camera'),canvas=document.getElementById('fx'),ctx=canvas.getContext('2d'),statusEl=document.getElementById('status'),logEl=document.getElementById('log'),promptEl=document.getElementById('prompt');let stream=null,detector=null,tracking=false,busy=false,previous=null,lastThrow=0,flowers=[],sparks=[];let scene="petals",heart=null,lastBurst=0,prevDistance=null,heartParticles=[],ripples=[],ambient=[];let lastRipple=0;
+const scenes=['petals','love','not','spinning','forever','hold1','hold2'];
+const captions=['Throwing petals','Love me','Or not','Head is spinning','Forever','Hold on','Hold on'];
+let sceneEffect=null,prevFinger=null,gestureCooldown=0,freezeUntil=0,butterflies=[],lastButterfly=0;
+function showSceneEffect(kind,x=innerWidth*.5,y=innerHeight*.45){
+ const now=performance.now();if(now<gestureCooldown)return;gestureCooldown=now+850;
+ if(kind==='not'){if(heart){shatterHeart(heart.x,heart.y,heart.r);heart=null;}else {shatterHeart(x,y,65);}sceneEffect={kind:'not',x,y,start:now};}
+ if(kind==='spinning'){addWaterDrop(x,y,1);sceneEffect=null;}if(kind==='forever'){releaseButterflies(x,y);sceneEffect={kind,x,y,start:now};}
+ if(kind==='hold1'){sceneEffect={kind,x,y,start:now};} if(kind==='hold2'){sceneEffect={kind,x,y,start:now};addRipple(x,y,35,'pearl',.5);}
+ if(kind==='petals')spawn(x,y,1);
+ if(kind==='love'){heart={x,y,r:75,energy:1,age:0};addRipple(x,y,24,'pink',.7);}
+}
+function palmOpen(h){let wrist=h[0];return [8,12,16,20].filter(i=>Math.hypot(h[i].x-wrist.x,h[i].y-wrist.y)>Math.hypot(h[i-2].x-wrist.x,h[i-2].y-wrist.y)*1.17).length>=3;}
+function handHeart(hands){if(hands.length<2)return false;let a=hands[0],b=hands[1];return Math.hypot(a[4].x-b[4].x,a[4].y-b[4].y)<.16&&Math.hypot(a[8].x-b[8].x,a[8].y-b[8].y)<.17;}
+
+// Pearl-glass butterfly animation: tiny wing strokes, no emoji or infinity sign.
+function releaseButterflies(x,y){
+ for(let i=0;i<7;i++){let a=(i/7)*Math.PI*2;
+ butterflies.push({x:x+(Math.random()-.5)*45,y:y+(Math.random()-.5)*36,
+ vx:Math.cos(a)*(.35+Math.random()*.5),vy:-.45-Math.random()*.55,
+ phase:Math.random()*6.28,age:0,life:235+Math.random()*80,
+ size:10+Math.random()*9,hue:i%3});}
+ if(butterflies.length>30)butterflies.splice(0,butterflies.length-30);
+}
+function drawButterflies(){
+ const time=performance.now()*.001;
+ for(let i=butterflies.length-1;i>=0;i--){let b=butterflies[i];
+ b.age++;b.x+=b.vx+Math.sin(time*1.5+b.phase)*.28;b.y+=b.vy+Math.sin(time*1.2+b.phase)*.14;
+ let alpha=Math.min(1,b.age/25,(b.life-b.age)/42)*.83;
+ if(alpha<=0){butterflies.splice(i,1);continue;}
+ let flap=.45+.55*Math.abs(Math.sin(time*9+b.phase));
+ ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.sin(time+b.phase)*.18);ctx.globalAlpha=alpha;
+ ctx.globalCompositeOperation='screen';ctx.shadowColor=b.hue===1?'#d5c8ff':'#ffd4ee';ctx.shadowBlur=7;
+ for(let side of [-1,1]){
+ ctx.save();ctx.scale(side*flap,1);
+ ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(b.size*.3,-b.size*1.15,b.size*1.25,-b.size*1.1,b.size*.94,-b.size*.1);
+ ctx.quadraticCurveTo(b.size*.8,b.size*.17,0,0);
+ ctx.fillStyle=b.hue===1?'rgba(190,205,255,.76)':'rgba(215,199,255,.72)';ctx.fill();
+ ctx.strokeStyle='rgba(255,255,255,.22)';ctx.lineWidth=.3;ctx.stroke();
+ ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(b.size*.45,b.size*.2,b.size*.88,b.size*.85,b.size*.2,b.size*.78);
+ ctx.quadraticCurveTo(-b.size*.08,b.size*.55,0,0);ctx.fillStyle='rgba(196,224,255,.7)';ctx.fill();ctx.stroke();ctx.restore();
+ }
+ ctx.beginPath();ctx.moveTo(0,-b.size*.3);ctx.lineTo(0,b.size*.45);ctx.strokeStyle='rgba(255,249,253,.9)';ctx.lineWidth=.8;ctx.stroke();ctx.restore();
+ }
+}
+function shatterHeart(x,y,r){
+ addRipple(x,y,r*.6,'pink',.8);
+ // Fine, drifting fragments rather than an explosive burst.
+ for(let i=0;i<74;i++){
+ let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t);
+ heartParticles.push({x:x+hx*r,y:y+hy*r,
+ vx:(Math.random()-.5)*1.5+hx*.5,vy:-.2-Math.random()*1.3,
+ life:75+Math.random()*55,max:130,size:.5+Math.random()*.9});
+ }
+}
+
+function drawExtra(){if(!sceneEffect)return;let e=sceneEffect,t=(performance.now()-e.start)/1000;if(t>2.4){sceneEffect=null;return}let fade=Math.max(0,1-t/2.4);ctx.save();ctx.translate(e.x,e.y);ctx.globalCompositeOperation='screen';ctx.globalAlpha=fade;ctx.strokeStyle='rgba(231,213,255,.72)';ctx.lineWidth=1.6;ctx.shadowColor='#e8d6ff';ctx.shadowBlur=8;
+
+
+
+if(e.kind==='hold1'||e.kind==='hold2'){ctx.beginPath();ctx.arc(0,0,55+t*24,0,Math.PI*2);ctx.stroke()}
+ctx.restore()}
+
+function log(s){let t=new Date().toLocaleTimeString('zh-CN',{hour12:false});logEl.textContent+=`${t} ${s}\n`;logEl.scrollTop=logEl.scrollHeight;statusEl.textContent=s.slice(0,36);}
+window.addEventListener('error',e=>log('JS错误: '+e.message));window.addEventListener('unhandledrejection',e=>log('Promise错误: '+String(e.reason)));
+function resize(){let d=devicePixelRatio||1;canvas.width=innerWidth*d;canvas.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)}addEventListener('resize',resize);resize();
+async function startCamera(){try{log('正在请求前置摄像头…');if(!navigator.mediaDevices?.getUserMedia)throw Error('getUserMedia不可用，请用Safari HTTPS网址');if(stream)stream.getTracks().forEach(t=>t.stop());stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});video.srcObject=stream;await video.play();log('摄像头成功 '+video.videoWidth+'×'+video.videoHeight);promptEl.textContent='';}catch(e){log('摄像头失败 '+e.name+': '+e.message);logEl.classList.add('show')}}
+document.getElementById('start').onclick=startCamera;
+function loadScript(url){return new Promise((resolve,reject)=>{let s=document.createElement('script');s.src=url;s.onload=resolve;s.onerror=()=>reject(Error('脚本加载失败：'+url));document.head.appendChild(s)})}
+async function startHands(){if(!stream){log('请先开启摄像头');return}if(tracking){log('手势识别已经启动');return}try{log('正在下载手势识别模型（需要网络）…');if(!window.Hands)await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js');detector=new Hands({locateFile:file=>'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/'+file});detector.setOptions({maxNumHands:2,modelComplexity:0,minDetectionConfidence:.55,minTrackingConfidence:.5});detector.onResults(onHands);tracking=true;log('手势识别已启动；请挥动手掌');detectLoop();}catch(e){tracking=false;log('手势初始化失败 '+e.message);logEl.classList.add('show')}}
+document.getElementById('hands').onclick=startHands;
+async function detectLoop(){if(!tracking)return;if(video.readyState>=2&&!busy){busy=true;try{await detector.send({image:video})}catch(e){log('识别运行错误: '+e.message);tracking=false;logEl.classList.add('show')}finally{busy=false}}if(tracking)setTimeout(detectLoop,75)}
+function onHands(results){let hands=results.multiHandLandmarks||[],now=performance.now();if(!hands.length){previous=null;prevDistance=null;prevFinger=null;return}
+let h=hands[0],p=h[9],x=(1-p.x)*innerWidth,y=p.y*innerHeight;
+if(scene==='love'){
+ if(hands.length>=2){let a=hands[0][9],b=hands[1][9],ax=1-a.x,bx=1-b.x,ay=a.y,by=b.y,d=Math.hypot(ax-bx,ay-by),cx=(ax+bx)*.5*innerWidth,cy=(ay+by)*.5*innerHeight;
+ if(handHeart(hands)||heart){if(!heart)heart={x:cx,y:cy,r:65,energy:1,age:0};heart.x+=(cx-heart.x)*.2;heart.y+=(cy-heart.y)*.2;heart.r+=(Math.max(65,Math.min(160,d*innerWidth*.8))-heart.r)*.16;if(now-lastRipple>420){addRipple(cx,cy,30,'pink',.45);lastRipple=now}}
+ if(prevDistance!==null&&d-prevDistance>.085&&now-lastBurst>1300&&heart){burstHeart(heart.x,heart.y,heart.r);lastBurst=now}prevDistance=d;}
+ previous=null;return;
+}
+prevDistance=null;
+if(scene==='not'){previous=null;return}
+if((scene==='hold1'||scene==='hold2')&&palmOpen(h)){previous=null;return}
+if(scene==='forever'&&hands.length>=1){if(now-lastButterfly>2300){releaseButterflies(x,y);lastButterfly=now;}previous=null;return}
+if(scene==='spinning'){let f=h[8],fx=(1-f.x)*innerWidth,fy=f.y*innerHeight;let now2=performance.now();if(!prevFinger||Math.hypot(fx-prevFinger.x,fy-prevFinger.y)>12){if(now2-lastWaterDrop>95){addWaterDrop(fx,fy,.8);lastWaterDrop=now2}}prevFinger={x:fx,y:fy};previous=null;return}
+if(scene==='petals'){let nx=1-p.x,ny=p.y;if(previous){let dt=now-previous.t,speed=Math.hypot(nx-previous.x,ny-previous.y)/(dt/1000);if(dt<350&&speed>.65&&now-lastThrow>950){spawn(nx*innerWidth,ny*innerHeight,Math.sign(nx-previous.x)||1);lastThrow=now}}previous={x:nx,y:ny,t:now}}
+}
+function addRipple(x,y,r=20,tone="pearl",power=1){ripples.push({x,y,r,age:0,max:65+Math.random()*22,power,tone});if(ripples.length>32)ripples.shift()}
+function spawn(x=innerWidth*.48,y=innerHeight*.45,dir=1){
+  addRipple(x,y,12,"pearl",.65);
+  setTimeout(()=>addRipple(x,y,23,"lavender",.38),130);
+  // 一次抛出数朵小雏菊，避免单朵大贴纸感
+  const count=5+Math.floor(Math.random()*3);
+  for(let i=0;i<count;i++){
+    const spread=(i-(count-1)/2)*11;
+    flowers.push({x:x+(Math.random()-.5)*15,y:y+(Math.random()-.5)*13,
+      vx:dir*(1.4+Math.random()*1.8)+(Math.random()-.5)*1.2,
+      vy:-1.5-Math.random()*1.6+spread*.035,
+      rot:Math.random()*Math.PI*2,vr:(Math.random()-.5)*.042,
+      life:135+Math.random()*50,size:9+Math.random()*6,age:0,
+      tint:Math.random()<.54?'cream':'blue'});
+  }
+  for(let i=0;i<14;i++){let a=Math.random()*Math.PI*2,s=.6+Math.random()*2;
+    sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:42,size:.4+Math.random()*.8})}
+  promptEl.textContent='';
+}
+document.getElementById('throw').onclick=()=>{spawn();log('手动抛花成功')};
+function setScene(v){let savedHeart=heart;scene=v;heart=null;prevDistance=null;previous=null;prevFinger=null;sceneEffect=null;document.getElementById('caption').textContent=captions[scenes.indexOf(v)]||'';document.querySelector('.lyrics').classList.remove('hide');document.getElementById('loveTitle').classList.remove('on');promptEl.textContent='';if(v==='not'){if(savedHeart)heart=savedHeart;showSceneEffect('not',innerWidth*.5,innerHeight*.44);}if(v==='forever')showSceneEffect('forever',innerWidth*.5,innerHeight*.53);if(v==='hold1'){document.body.classList.remove('hold-clear');document.body.classList.add('hold-blur');}else if(v==='hold2'){document.body.classList.remove('hold-blur');document.body.classList.add('hold-clear');showSceneEffect('hold2',innerWidth*.5,innerHeight*.5);}else{document.body.classList.remove('hold-blur','hold-clear');}if(v==='spinning'){for(let i=0;i<3;i++)setTimeout(()=>{if(scene==='spinning')addWaterDrop(innerWidth*(.36+i*.13),innerHeight*(.46+i*.06),.75)},i*260)}log('Scene: '+v)}
+// DAISIES V6.0: song timestamps in seconds; edit these values to fine-tune the sync.
+const MV_START=14.0;
+const MV_CUES=[
+  {at:16.5,scene:'petals'},
+  {at:19.0,scene:'love'},
+  {at:21.0,scene:'not'},
+  {at:23.0,scene:'spinning'},
+  {at:28.0,scene:'forever'},
+  {at:31.0,scene:'hold1'},
+  {at:33.0,scene:'hold2'}
+];
+const mvAudio=document.getElementById('mvAudio'),mvClock=document.getElementById('mvClock');
+let mvRunning=false,mvStartedAt=0,mvLastCue=-1,mvRaf=0,mvAudioUrl=null,mvUsingAudio=false;
+const fmtTime=t=>'00:'+Math.floor(t).toString().padStart(2,'0')+'.'+Math.floor((t%1)*10);
+function mvResetVisuals(){
+  scene='prelude';heart=null;sceneEffect=null;flowers.length=0;sparks.length=0;heartParticles.length=0;
+  ripples.length=0;butterflies.length=0;previous=null;prevFinger=null;
+  document.body.classList.remove('hold-blur','hold-clear');
+  document.getElementById('caption').textContent='';
+  document.getElementById('loveTitle').classList.remove('on');
+  promptEl.textContent='';
+}
+function mvTime(){return mvUsingAudio?mvAudio.currentTime:MV_START+(performance.now()-mvStartedAt)/1000}
+function mvTick(){
+  if(!mvRunning)return;
+  const t=mvTime();mvClock.textContent='MV · '+fmtTime(t);
+  let idx=-1;
+  for(let i=0;i<MV_CUES.length;i++)if(t>=MV_CUES[i].at)idx=i;
+  if(idx!==mvLastCue){
+    mvLastCue=idx;
+    if(idx>=0){
+      const next=MV_CUES[idx].scene;
+      if(next==='love'){
+        setScene('love');
+        heart={x:innerWidth*.5,y:innerHeight*.45,r:Math.min(100,innerWidth*.21),age:0};
+        showSceneEffect('love');
+      }else{
+        setScene(next);
+        if(next==='petals')spawn(innerWidth*.48,innerHeight*.53,1);
+      }
+    }else mvResetVisuals();
+  }
+  if(t>=36){mvStop(true);return}
+  mvRaf=requestAnimationFrame(mvTick);
+}
+function mvStop(finished=false){
+  mvRunning=false;cancelAnimationFrame(mvRaf);
+  if(mvUsingAudio)mvAudio.pause();
+  mvUsingAudio=false;mvLastCue=-1;
+  mvResetVisuals();
+  mvClock.textContent=finished?'FINISHED · 00:36.0':'READY · 00:14.0';
+  document.getElementById('mvStart').textContent='▶ Start MV';
+}
+async function mvStart(){
+  if(mvRunning){mvStop();return}
+  mvResetVisuals();mvLastCue=-1;
+  mvStartedAt=performance.now();mvUsingAudio=false;
+  if(mvAudio.src){
+    try{
+      if(mvAudio.readyState<1)await new Promise((resolve,reject)=>{
+        mvAudio.addEventListener('loadedmetadata',resolve,{once:true});
+        mvAudio.addEventListener('error',reject,{once:true});
+      });
+      mvAudio.currentTime=MV_START;
+      await mvAudio.play();
+      mvUsingAudio=true;
+    }catch(e){
+      log('Local audio playback unavailable; using visual timer: '+e.message);
+      mvStartedAt=performance.now();
+    }
+  }
+  mvRunning=true;document.getElementById('mvStart').textContent='Ⅱ Pause / Reset';
+  mvTick();
+}
+document.getElementById('mvStart').onclick=mvStart;
+document.getElementById('mvStop').onclick=()=>mvStop();
+mvAudio.addEventListener('ended',()=>{if(mvRunning)mvStop(true)});
+document.getElementById('audioFile').addEventListener('change',e=>{
+  const f=e.target.files&&e.target.files[0];if(!f)return;
+  mvStop();if(mvAudioUrl)URL.revokeObjectURL(mvAudioUrl);
+  mvAudioUrl=URL.createObjectURL(f);mvAudio.src=mvAudioUrl;
+  mvClock.textContent='AUDIO READY · 00:14.0';
+  log('Local audio selected: '+f.name+' (not uploaded)');
+});
+document.getElementById('mode').onclick=()=>setScene(scenes[(scenes.indexOf(scene)+1)%scenes.length]);
+document.getElementById('love').onclick=()=>{setScene('love');showSceneEffect('love')};
+document.getElementById('preview').onclick=()=>{if(scene==='spinning'){for(let i=0;i<4;i++)setTimeout(()=>addWaterDrop(innerWidth*(.3+i*.12),innerHeight*(.43+Math.sin(i)*.07),1),i*170)}else showSceneEffect(scene)};
+document.getElementById('clean').onclick=()=>{document.body.classList.add('cinematic');promptEl.textContent='';};document.querySelector('.top').addEventListener('click',()=>{document.querySelector('.controls').style.display='flex'});
+function heartPoint(t){let x=16*Math.pow(Math.sin(t),3),y=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));return [x/18,y/18]}
+function burstHeart(x,y,r){addRipple(x,y,r*.65,"pink",1.7);setTimeout(()=>addRipple(x,y,r*.9,"pearl",.8),150);for(let i=0;i<95;i++){let t=Math.random()*Math.PI*2,[hx,hy]=heartPoint(t),angle=Math.atan2(hy,hx),speed=1.5+Math.random()*4;heartParticles.push({x:x+hx*r,y:y+hy*r,vx:Math.cos(angle)*speed+(Math.random()-.5)*2,vy:Math.sin(angle)*speed+(Math.random()-.5)*2,life:75+Math.random()*45,max:120,size:.65+Math.random()*1.5})}heart=null}
+function drawHeart(h){let t=performance.now()*.001;h.age=(h.age||0)+1;ctx.save();ctx.translate(h.x,h.y);ctx.globalAlpha=Math.min(.83,h.age/35);ctx.globalCompositeOperation='screen';for(let layer=2;layer>=0;layer--){let r=h.r*(.95+layer*.018)*(.85+.15*Math.min(1,h.age/35));ctx.beginPath();for(let i=0;i<=140;i++){let a=i/140*Math.PI*2,[x,y]=heartPoint(a);if(!i)ctx.moveTo(x*r,y*r);else ctx.lineTo(x*r,y*r)}ctx.closePath();ctx.strokeStyle=['rgba(255,250,255,.8)','rgba(255,215,234,.33)','rgba(217,204,255,.12)'][layer];ctx.lineWidth=[1.4,3.1,6.2][layer];ctx.shadowBlur=[5,11,16][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}for(let i=0;i<42;i++){let a=i/42*Math.PI*2,[x,y]=heartPoint(a);ctx.beginPath();ctx.fillStyle=i%3===0?'rgba(255,255,255,.8)':'rgba(255,218,238,.65)';ctx.shadowBlur=5;ctx.arc(x*h.r,y*h.r,0.6+(i%3)*.25,0,Math.PI*2);ctx.fill()}ctx.restore()}
+document.getElementById('debug').onclick=()=>logEl.classList.toggle('show');
+function daisy(x,y,size,rot,alpha,tint='cream'){
+ // Rounded, filled botanical flowers, with stems and leaves; no white outline strokes.
+ ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.globalAlpha=alpha;
+ const blue=tint==='blue';const petal=blue?'#9fbfe5':'#fff8e8';const petal2=blue?'#b7d5ef':'#f7e8cf';
+ ctx.strokeStyle='#6f956e';ctx.lineWidth=Math.max(.9,size*.075);ctx.lineCap='round';
+ ctx.beginPath();ctx.moveTo(0,size*.05);ctx.quadraticCurveTo(size*.26,size*.85,size*.06,size*1.9);ctx.stroke();
+ for(let j=0;j<2;j++){ctx.save();ctx.translate(j?size*.13:-size*.08,size*(.75+j*.38));ctx.rotate(j?-.5:2.6);ctx.beginPath();ctx.ellipse(0,0,size*.12,size*.32,.35,0,Math.PI*2);ctx.fillStyle=j?'#8caf82':'#729b77';ctx.fill();ctx.restore();}
+ const petals=blue?5:11;
+ for(let i=0;i<petals;i++){ctx.save();ctx.rotate(i*Math.PI*2/petals);ctx.beginPath();ctx.ellipse(0,-size*(blue?.39:.39),size*(blue?.24:.145),size*(blue?.35:.33),0,0,Math.PI*2);ctx.fillStyle=i%3===0?petal2:petal;ctx.fill();ctx.restore();}
+ ctx.beginPath();ctx.arc(0,0,size*(blue?.14:.21),0,Math.PI*2);ctx.fillStyle=blue?'#d9e8b5':'#efb63e';ctx.fill();
+ if(!blue){for(let i=0;i<7;i++){let a=i*6.283/7;ctx.beginPath();ctx.arc(Math.cos(a)*size*.12,Math.sin(a)*size*.12,size*.025,0,Math.PI*2);ctx.fillStyle='#cf8c2f';ctx.fill();}}
+ ctx.restore();
+}
+let waterDrops=[],lastWaterDrop=0;
+function addWaterDrop(x,y,power=1){waterDrops.push({x,y,born:performance.now(),power,seed:Math.random()*6.28});if(waterDrops.length>22)waterDrops.shift();}
+function drawMoonwater(){
+ const now=performance.now();
+ for(let i=waterDrops.length-1;i>=0;i--){const p=waterDrops[i],t=(now-p.born)/1000;
+ if(t>3.2){waterDrops.splice(i,1);continue}
+ const fade=Math.pow(1-t/3.2,1.55)*p.power;
+ ctx.save();ctx.translate(p.x,p.y);ctx.globalCompositeOperation='screen';
+ // Soft underwater refraction bloom: layered radial gradients, not a rotating neon ring.
+ const glow=ctx.createRadialGradient(0,0,2,0,0,105+t*55);
+ glow.addColorStop(0,`rgba(240,213,255,${.10*fade})`);
+ glow.addColorStop(.35,`rgba(174,207,255,${.085*fade})`);
+ glow.addColorStop(.72,`rgba(255,220,239,${.045*fade})`);
+ glow.addColorStop(1,'rgba(255,255,255,0)');
+ ctx.fillStyle=glow;ctx.beginPath();ctx.arc(0,0,105+t*55,0,Math.PI*2);ctx.fill();
+ for(let ring=0;ring<4;ring++){
+  const phase=t-ring*.21;if(phase<0)continue;
+  const radius=8+phase*80;const alpha=fade*Math.max(0,1-phase/3.1);
+  for(let edge=0;edge<3;edge++){
+   ctx.beginPath();const points=90;
+   for(let j=0;j<=points;j++){
+    const a=j/points*Math.PI*2;
+    const wobble=2.8*Math.sin(a*5+phase*3+p.seed)+1.6*Math.sin(a*9-phase*2);
+    const rr=radius+wobble+edge*2.7;
+    const px=Math.cos(a)*rr,py=Math.sin(a)*rr*.68;
+    if(j===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
+   }
+   const c=edge===0?'245,242,255':edge===1?'185,211,255':'255,216,235';
+   ctx.strokeStyle=`rgba(${c},${alpha*[.45,.17,.11][edge]})`;
+   ctx.lineWidth=[1.3,3,6][edge];ctx.shadowColor='#d6c9ff';ctx.shadowBlur=edge===0?7:13;ctx.stroke();
+  }
+  // Broken caustic highlights travel along the wave crest.
+  for(let j=0;j<5;j++){
+   const a=p.seed+j*1.31+phase*.42;
+   const r=radius+2*Math.sin(a*5+phase*3);
+   const x=Math.cos(a)*r,y=Math.sin(a)*r*.68;
+   ctx.beginPath();ctx.ellipse(x,y,2.7+phase*.6,.7,a,0,Math.PI*2);
+   ctx.fillStyle=`rgba(255,250,255,${alpha*.52})`;ctx.fill();
+  }
+ }
+ ctx.restore();
+ }
+}
+function drawRipples(){for(let i=ripples.length-1;i>=0;i--){let p=ripples[i];p.age++;let k=p.age/p.max,r=p.r+(Math.min(innerWidth,innerHeight)*.36)*k;let fade=(1-k)*(1-k)*Math.min(1,p.power)*.78;ctx.save();ctx.globalCompositeOperation='screen';ctx.translate(p.x,p.y);ctx.scale(1,.62);for(let layer=0;layer<3;layer++){ctx.beginPath();ctx.arc(0,0,r+layer*5,0,Math.PI*2);ctx.lineWidth=[1.25,2.5,5][layer];let rgb=p.tone==='pink'?'255,219,237':p.tone==='lavender'?'226,214,255':'247,245,255';ctx.strokeStyle=`rgba(${rgb},${fade*[.7,.21,.065][layer]})`;ctx.shadowBlur=[5,9,13][layer];ctx.shadowColor='#ffe6f2';ctx.stroke()}ctx.restore();if(p.age>=p.max)ripples.splice(i,1)}}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);drawRipples();drawMoonwater();drawExtra();if(scene==='love'&&heart)drawHeart(heart);drawButterflies();for(let i=heartParticles.length-1;i>=0;i--){let p=heartParticles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.988;p.vy*=.988;p.life--;ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.shadowColor='#ffbfdf';ctx.shadowBlur=7;ctx.fillStyle=i%4===0?'#fff':'#ffcfeb';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();ctx.restore();if(p.life<=0)heartParticles.splice(i,1)}for(let i=flowers.length-1;i>=0;i--){let f=flowers[i];f.x+=f.vx;f.y+=f.vy;f.vy+=.035;f.rot+=f.vr;f.life--;f.age++;daisy(f.x,f.y,f.size*(.5+.5*Math.min(1,f.age/16)),f.rot,Math.min(1,f.age/12,f.life/35),f.tint);if(f.life<=0)flowers.splice(i,1)}for(let i=sparks.length-1;i>=0;i--){let p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.02;p.life--;ctx.fillStyle=`rgba(255,225,242,${Math.max(0,p.life/50)*.65})`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();if(p.life<=0)sparks.splice(i,1)}requestAnimationFrame(draw)}draw();log('V6.4.2 Face Sculpt ready · cues 14–36s');
+document.getElementById('restore').onclick=()=>document.body.classList.remove('cinematic');
+
+// Face-aware skin softening: a low-resolution blur sampled from the actual camera,
+// masked to the detected facial oval. Eyes and lips remain unblurred.
+const beautyPanel=document.getElementById('beautyPanel');
+document.getElementById('beautyButton').onclick=()=>{beautyPanel.classList.toggle('open');if(stream&&!faceTracker)initFaceBeauty()};
+document.getElementById('beautyClose').onclick=()=>beautyPanel.classList.remove('open');
+for(const id of ['smooth','bright'])document.getElementById(id).oninput=e=>document.getElementById(id+'Val').textContent=e.target.value;
+// True GPU warping: sample the live camera texture at locally deformed UV coordinates.
+// Face Landmarker landmarks are tracked from video frames, not fabricated slider effects.
+const sculptUI=document.createElement('div');sculptUI.innerHTML=`<label>Slim face <input id="slimFace" type="range" min="0" max="100" value="85"><span id="slimFaceVal">85</span></label><label>Smaller head <input id="smallHead" type="range" min="0" max="100" value="60"><span id="smallHeadVal">60</span></label><label>Bigger eyes <input id="bigEyes" type="range" min="0" max="100" value="70"><span id="bigEyesVal">70</span></label><p class="note">GPU face reshaping · 0–100 intensity. Actual deformation is limited to avoid severe artifacts. If tracking fails, the original camera remains visible.</p>`;
+beautyPanel.insertBefore(sculptUI,document.getElementById('beautyClose'));
+for(const id of ['slimFace','smallHead','bigEyes'])document.getElementById(id).oninput=e=>document.getElementById(id+'Val').textContent=e.target.value;
+const gl=beautyCanvas.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:false,powerPreference:'high-performance'});
+let faceTracker=null, facePoints=null, lastDetect=0, lastVideoTime=-1, gpuReady=false, gpuProgram=null, gpuTexture=null, uni={}, faceFoundLogged=false;
+function compileShader(type,source){const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
+function initGPU(){if(!gl)throw Error('WebGL not supported');
+const vs=`attribute vec2 pos;varying vec2 uv;void main(){uv=pos*.5+.5;gl_Position=vec4(pos,0.,1.);}`;
+const fs=`precision highp float;varying vec2 uv;
+uniform sampler2D tex;uniform vec2 cover;uniform vec2 eyeL,eyeR,cheekL,cheekR,faceC;
+uniform float faceW,faceH,slim,head,eyes,smooth,bright,tracked;
+vec2 pull(vec2 p,vec2 c,vec2 shift,float radius){vec2 delta=p-c;float d=length(delta);float fall=pow(max(0.,1.-d/radius),2.);return p+shift*fall;}
+vec2 zoomEye(vec2 p,vec2 c,float radius,float amount){vec2 d=p-c;float r=length(d);float t=max(0.,1.-r/radius);return p-d*amount*t*t;}
+void main(){vec2 p=uv;
+ if(tracked>.5){
+ // A localized inverse scale around the head reduces apparent head size.
+ vec2 delta=(p-faceC)/vec2(1.,1.);float rr=length(delta/vec2(max(faceW*.88,.001),max(faceH*1.20,.001)));
+ float mask=pow(max(0.,1.-rr),2.);p=faceC+delta*(1.+head*.19*mask);
+ // Inverse mapping pulls source cheek pixels outward, making the visible jaw slimmer.
+ p=p+vec2(-slim*faceW*.20,0.)*pow(max(0.,1.-length((p-cheekL)/vec2(faceW*.37,faceH*.64))),2.);
+ p=p+vec2( slim*faceW*.20,0.)*pow(max(0.,1.-length((p-cheekR)/vec2(faceW*.37,faceH*.64))),2.);
+ // Eye enlargement: inverse radial warp, separate for left and right eyes.
+ p=zoomEye(p,eyeL,faceW*.27,eyes*.31);
+ p=zoomEye(p,eyeR,faceW*.27,eyes*.31);
+ }
+ // The video is mirrored and object-fit:cover; cover maps screen to video texture.
+ vec2 q=(p-.5)*cover+.5;q.x=1.-q.x;
+ vec4 color=texture2D(tex,q);
+ if(tracked>.5&&smooth>0.){
+ float mask=max(0.,1.-length((uv-faceC)/vec2(max(faceW*.73,.01),max(faceH*.75,.01))));
+ float eyeMask=1.-max(pow(max(0.,1.-length((uv-eyeL)/vec2(faceW*.29,faceH*.16))),2.),pow(max(0.,1.-length((uv-eyeR)/vec2(faceW*.29,faceH*.16))),2.));
+ float amt=smooth*.42*mask*eyeMask;
+ vec2 px=vec2(.0018,.0018)*cover;
+ vec4 blur=(texture2D(tex,q+vec2(px.x,0.))+texture2D(tex,q-vec2(px.x,0.))+texture2D(tex,q+vec2(0.,px.y))+texture2D(tex,q-vec2(0.,px.y)))*.25;
+ color=mix(color,blur,amt);
+ }
+ color.rgb=clamp((color.rgb-.5)*.99+.5+bright*.11,0.,1.);
+ gl_FragColor=vec4(color.rgb,1.);
+}`;
+const pr=gl.createProgram();gl.attachShader(pr,compileShader(gl.VERTEX_SHADER,vs));gl.attachShader(pr,compileShader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(pr));gpuProgram=pr;
+const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);gl.useProgram(pr);const attr=gl.getAttribLocation(pr,'pos');gl.enableVertexAttribArray(attr);gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+for(const n of ['tex','cover','eyeL','eyeR','cheekL','cheekR','faceC','faceW','faceH','slim','head','eyes','smooth','bright','tracked'])uni[n]=gl.getUniformLocation(pr,n);
+gpuTexture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,gpuTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.uniform1i(uni.tex,0);gpuReady=true;}
+function faceUV(pt){const vw=video.videoWidth||1,vh=video.videoHeight||1,w=innerWidth,h=innerHeight;const k=Math.max(w/vw,h/vh),sw=vw*k,sh=vh*k;return [(w-sw)/2/w+(1-pt.x)*sw/w,1-((h-sh)/2+pt.y*sh)/h]}
+function sendPoint(name,p){gl.uniform2f(uni[name],p[0],p[1]);}
+function beautyFrame(now){requestAnimationFrame(beautyFrame);if(!gpuReady||!video.videoWidth||!stream){beautyCanvas.style.display='none';video.style.opacity='1';return;}
+ const enabled=document.getElementById('beautyOn').checked;
+ if(!enabled){beautyCanvas.style.display='none';video.style.opacity='1';return;}
+ const w=innerWidth,h=innerHeight,d=Math.min(devicePixelRatio||1,1.5),cw=Math.round(w*d),ch=Math.round(h*d);if(beautyCanvas.width!==cw||beautyCanvas.height!==ch){beautyCanvas.width=cw;beautyCanvas.height=ch;gl.viewport(0,0,cw,ch)}
+ try{gl.useProgram(gpuProgram);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,gpuTexture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,video);
+ const vw=video.videoWidth,vh=video.videoHeight,k=Math.max(w/vw,h/vh);gl.uniform2f(uni.cover,w/(vw*k),h/(vh*k));
+ const f=facePoints;gl.uniform1f(uni.tracked,f?1:0);
+ if(f){const p=i=>faceUV(f[i]);const left=p(33),right=p(263),cl=p(234),cr=p(454),top=p(10),chin=p(152);sendPoint('eyeL',left);sendPoint('eyeR',right);sendPoint('cheekL',cl);sendPoint('cheekR',cr);sendPoint('faceC',[(top[0]+chin[0])*.5,(top[1]+chin[1])*.5]);gl.uniform1f(uni.faceW,Math.abs(cr[0]-cl[0]));gl.uniform1f(uni.faceH,Math.abs(top[1]-chin[1]));}
+ gl.uniform1f(uni.slim,Number(document.getElementById('slimFace').value)/100);gl.uniform1f(uni.head,Number(document.getElementById('smallHead').value)/100);gl.uniform1f(uni.eyes,Number(document.getElementById('bigEyes').value)/100);gl.uniform1f(uni.smooth,Number(document.getElementById('smooth').value)/70);gl.uniform1f(uni.bright,Number(document.getElementById('bright').value)/50);
+ gl.drawArrays(gl.TRIANGLE_STRIP,0,4);beautyCanvas.style.display='block';video.style.opacity='0';
+ }catch(e){beautyCanvas.style.display='none';video.style.opacity='1';if(!window.gpuWarn){log('GPU beauty fallback: '+e.message);window.gpuWarn=true}}
+}
+requestAnimationFrame(beautyFrame);
+// V6.4.2: native ESM (.mjs) first; never inject an ESM module as a classic script.
+// The two files tested on iPhone are vision_bundle.mjs and vision_wasm_internal.wasm.
+let faceInitPromise=null, faceLoopActive=false, faceInitError='';
+async function loadFaceVision(){
+ const sources=[
+  {js:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs',wasm:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm'},
+  {js:'https://unpkg.com/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs',wasm:'https://unpkg.com/@mediapipe/tasks-vision@0.10.14/wasm'},
+  {js:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm',wasm:'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm'}
+ ];
+ let failures=[];
+ for(const source of sources){
+  try{
+   log('加载 Face Landmarker (.mjs)：'+new URL(source.js).hostname);
+   const api=await import(/* webpackIgnore: true */ source.js);
+   if(!api?.FaceLandmarker||!api?.FilesetResolver)throw Error('模块缺少 FaceLandmarker / FilesetResolver');
+   log('人脸识别 JS 模块加载成功，准备 WASM…');
+   const fileset=await api.FilesetResolver.forVisionTasks(source.wasm);
+   log('WASM 资源配置完成');
+   return {api,fileset,source};
+  }catch(err){failures.push(source.js+': '+(err?.message||String(err)));log('模块加载失败，尝试备用地址：'+(err?.message||String(err)))}
+ }
+ throw Error('全部 ESM 地址失败：'+failures.join(' | '));
+}
+function beginFaceLoop(){
+ if(faceLoopActive)return;
+ faceLoopActive=true;
+ const detect=now=>{
+  if(!faceLoopActive)return;
+  if(!stream||!faceTracker){facePoints=null;faceLoopActive=false;return}
+  if(video.readyState>=2&&now-lastDetect>110&&video.currentTime!==lastVideoTime){
+   lastDetect=now;lastVideoTime=video.currentTime;
+   try{facePoints=faceTracker.detectForVideo(video,now).faceLandmarks?.[0]||null;if(facePoints&&!faceFoundLogged){faceFoundLogged=true;log('已检测到人脸 · WebGL 瘦脸/小头/大眼正在运行')}else if(!facePoints&&faceFoundLogged){faceFoundLogged=false;log('人脸暂时离开画面')}}
+   catch(e){facePoints=null;if(!window.faceDetectWarn){log('识别人脸时出错：'+e.message);window.faceDetectWarn=true}}
+  }
+  requestAnimationFrame(detect);
+ };
+ requestAnimationFrame(detect);
+}
+async function initFaceBeauty(){
+ if(faceTracker)return;
+ if(faceInitPromise)return faceInitPromise;
+ faceInitPromise=(async()=>{
+  try{
+   if(!gpuReady)initGPU();
+   const {api,fileset}=await loadFaceVision();
+   const model='https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
+   let lastError=null;
+   for(const delegate of ['GPU','CPU']){
+    try{
+     log('正在启动 '+delegate+' 人脸模型…');
+     faceTracker=await api.FaceLandmarker.createFromOptions(fileset,{
+      baseOptions:{modelAssetPath:model,delegate},runningMode:'VIDEO',numFaces:1,
+      minFaceDetectionConfidence:.5,minFacePresenceConfidence:.5,minTrackingConfidence:.5
+     });
+     log('人脸模型已加载（'+delegate+'），正在等待检测到人脸…');
+     faceInitError='';beginFaceLoop();return;
+    }catch(e){lastError=e;log(delegate+' 模型初始化失败：'+e.message)}
+   }
+   throw lastError||Error('模型无法启动');
+  }catch(e){facePoints=null;faceInitError=e.message;log('人脸变形暂不可用：'+e.message);logEl.classList.add('show')}
+  finally{faceInitPromise=null}
+ })();
+ return faceInitPromise;
+}
+const oldCameraClick=document.getElementById('start').onclick;
+document.getElementById('start').onclick=async()=>{await oldCameraClick();if(stream)initFaceBeauty()};
+// Optional first-visit instructions; no network access or permissions are requested by the guide.
+(function(){
+ const g=document.getElementById('guide');
+ const show=()=>g.classList.add('open');
+ document.getElementById('helpToggle').addEventListener('click',show);
+ document.getElementById('guideGo').addEventListener('click',()=>{g.classList.remove('open');try{localStorage.setItem('yiyang-guide-seen','1')}catch(e){}});
+ try{if(!localStorage.getItem('yiyang-guide-seen'))show()}catch(e){show()}
+})();
+</script></body></html>
